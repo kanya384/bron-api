@@ -1,4 +1,4 @@
-module api
+module github.com/kanya384/bron-api
 
 go 1.18
 
