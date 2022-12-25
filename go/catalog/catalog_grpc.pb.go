@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CatalogClient interface {
 	CreateCategory(ctx context.Context, in *CreateCategoryRequest, opts ...grpc.CallOption) (*CreateCategoryResponse, error)
-	UpdateCategory(ctx context.Context, in *UpdateCategoryRequest, opts ...grpc.CallOption) (*CreateCategoryResponse, error)
+	UpdateCategory(ctx context.Context, in *UpdateCategoryRequest, opts ...grpc.CallOption) (*UpdateCategoryResponse, error)
 	DeleteCategory(ctx context.Context, in *DeleteCategoryRequest, opts ...grpc.CallOption) (*DeleteCategoryResponse, error)
 	ReadCategoriesByProjectId(ctx context.Context, in *ReadCategoriesByProjectIdRequest, opts ...grpc.CallOption) (*ReadCategoriesByProjectIdResponse, error)
 	CreateProduct(ctx context.Context, in *CreateProductRequest, opts ...grpc.CallOption) (*CreateProductResponse, error)
@@ -49,8 +49,8 @@ func (c *catalogClient) CreateCategory(ctx context.Context, in *CreateCategoryRe
 	return out, nil
 }
 
-func (c *catalogClient) UpdateCategory(ctx context.Context, in *UpdateCategoryRequest, opts ...grpc.CallOption) (*CreateCategoryResponse, error) {
-	out := new(CreateCategoryResponse)
+func (c *catalogClient) UpdateCategory(ctx context.Context, in *UpdateCategoryRequest, opts ...grpc.CallOption) (*UpdateCategoryResponse, error) {
+	out := new(UpdateCategoryResponse)
 	err := c.cc.Invoke(ctx, "/grpc.Catalog/UpdateCategory", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -117,7 +117,7 @@ func (c *catalogClient) ReadProductsOfCategory(ctx context.Context, in *ReadProd
 // for forward compatibility
 type CatalogServer interface {
 	CreateCategory(context.Context, *CreateCategoryRequest) (*CreateCategoryResponse, error)
-	UpdateCategory(context.Context, *UpdateCategoryRequest) (*CreateCategoryResponse, error)
+	UpdateCategory(context.Context, *UpdateCategoryRequest) (*UpdateCategoryResponse, error)
 	DeleteCategory(context.Context, *DeleteCategoryRequest) (*DeleteCategoryResponse, error)
 	ReadCategoriesByProjectId(context.Context, *ReadCategoriesByProjectIdRequest) (*ReadCategoriesByProjectIdResponse, error)
 	CreateProduct(context.Context, *CreateProductRequest) (*CreateProductResponse, error)
@@ -134,7 +134,7 @@ type UnimplementedCatalogServer struct {
 func (UnimplementedCatalogServer) CreateCategory(context.Context, *CreateCategoryRequest) (*CreateCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCategory not implemented")
 }
-func (UnimplementedCatalogServer) UpdateCategory(context.Context, *UpdateCategoryRequest) (*CreateCategoryResponse, error) {
+func (UnimplementedCatalogServer) UpdateCategory(context.Context, *UpdateCategoryRequest) (*UpdateCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCategory not implemented")
 }
 func (UnimplementedCatalogServer) DeleteCategory(context.Context, *DeleteCategoryRequest) (*DeleteCategoryResponse, error) {
