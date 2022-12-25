@@ -2,6 +2,7 @@
 
 genproto: ## generates go package from proto files
 	@protoc  protos/auth.proto --go-grpc_out=./go/auth --go_out=./go/auth
+	@protoc  protos/catalog.proto --go-grpc_out=./go/catalog --go_out=./go/catalog
 .PHONY: genproto
 
 help: ## Display this help screen

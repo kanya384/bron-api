@@ -1,0 +1,199 @@
+syntax = "proto3";
+package grpc;
+
+option go_package="./;grpc";
+import "libs/google/protobuf/timestamp.proto";
+import "libs/google/api/annotations.proto";
+import "libs/protoc-gen-openapiv2/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+      title: "Catalog service gateway";
+      version: "1.0";
+      contact: {
+        name: "laurkan";
+        email: "kanya384@mail.ru";
+      };
+    };
+    security_definitions: {
+        security: {
+            key: "Bearer"
+            value: {
+                type: TYPE_API_KEY
+                in: IN_HEADER
+                name: "Authorization"
+                description: "Authentication token, prefixed by Bearer: Bearer <token>"
+            }
+        }
+    };
+    security: {
+        security_requirement: {
+          key: "Bearer"
+        }
+    };
+      
+};
+
+service Catalog {
+    rpc CreateCategory (CreateCategoryRequest) returns (CreateCategoryResponse) {
+        option (google.api.http) = {
+            put: "/category"
+            body: "*"
+        };
+    }
+
+    rpc UpdateCategory (UpdateCategoryRequest) returns (CreateCategoryResponse) {
+        option (google.api.http) = {
+            post: "/category"
+            body: "*"
+        };
+    }
+
+    rpc DeleteCategory (DeleteCategoryRequest) returns (DeleteCategoryResponse) {
+        option (google.api.http) = {
+            delete: "/category"
+            body: "*"
+        };
+    }
+
+    rpc ReadCategoriesByProjectId (ReadCategoriesByProjectIdRequest) returns (ReadCategoriesByProjectIdResponse) {
+        option (google.api.http) = {
+            get: "/category/{projectId}"
+            body: "*"
+        };
+    }
+
+    rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {
+        option (google.api.http) = {
+            put: "/product"
+            body: "*"
+        };
+    }
+
+    rpc UpdateProduct (UpdateProductRequest) returns (UpdateProductResponse) {
+        option (google.api.http) = {
+            post: "/product"
+            body: "*"
+        };
+    }
+
+    rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse) {
+        option (google.api.http) = {
+            delete: "/product"
+            body: "*"
+        };
+    }
+
+    rpc ReadProductsOfCategory (ReadProductsOfCategoryRequest) returns (ReadProductsOfCategoryResponse) {
+        option (google.api.http) = {
+            delete: "/category/{productId}"
+            body: "*"
+        };
+    }
+}
+
+message CreateProductRequest {
+    string categoryId = 1;
+    string name = 2;
+    string summary = 3;
+    string description = 4;
+    string image = 5;
+    string badge = 6;
+    string status = 7;
+    float price = 8;
+}
+
+message CreateProductResponse{
+    ProductResponse response =1;
+}
+
+message UpdateProductRequest {
+    string id = 1;
+    string categoryId = 2;
+    string name = 3;
+    string summary = 4;
+    string description = 5;
+    string image = 6;
+    string badge = 7;
+    string status = 8;
+    float price = 9;
+}
+
+message UpdateProductResponse{
+    ProductResponse response =1;
+}
+
+message DeleteProductRequest {
+    string id = 1;
+}
+
+message DeleteProductResponse {
+    bool success = 1;
+}
+
+message ReadProductsOfCategoryRequest {
+    string productId = 1;
+}
+
+message ReadProductsOfCategoryResponse {
+    repeated ProductResponse response =1;
+}
+
+message ProductResponse {
+    string id = 1;
+    string categoryId = 2;
+    string name = 3;
+    string summary = 4;
+    string description = 5;
+    string image = 6;
+    string badge = 7;
+    string status = 8;
+    float price = 9;
+    int32 rating = 10;
+    int32 ratingCount = 11;
+    google.protobuf.Timestamp createdAt = 12;
+    google.protobuf.Timestamp modifiedAt = 13;
+}
+
+message CreateCategoryRequest {
+    string projectId = 1;
+    string name = 2;
+}
+
+message CreateCategoryResponse{
+    CategoryResponse response =1;
+}
+
+message UpdateCategoryRequest {
+    string id = 1;
+    string name = 2;
+}
+
+message UpdateCategoryResponse{
+    CategoryResponse response =1;
+}
+
+
+message CategoryResponse {
+    string id = 1;
+    string projectId = 2;
+    string name = 3;
+    google.protobuf.Timestamp createdAt = 5;
+    google.protobuf.Timestamp modifiedAt = 6;
+}
+
+message DeleteCategoryRequest {
+    string id = 1;
+}
+
+message DeleteCategoryResponse {
+    bool success = 1;
+}
+
+message ReadCategoriesByProjectIdRequest {
+    string projectId = 1;
+}
+
+message ReadCategoriesByProjectIdResponse {
+    repeated CategoryResponse response =1;
+}
