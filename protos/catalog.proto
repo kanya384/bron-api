@@ -42,7 +42,7 @@ service Catalog {
         };
     }
 
-    rpc UpdateCategory (UpdateCategoryRequest) returns (CreateCategoryResponse) {
+    rpc UpdateCategory (UpdateCategoryRequest) returns (UpdateCategoryResponse) {
         option (google.api.http) = {
             post: "/category"
             body: "*"
