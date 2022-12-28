@@ -1,0 +1,464 @@
+syntax = "proto3";
+package grpc;
+
+option go_package="./;grpc";
+import "libs/google/protobuf/timestamp.proto";
+import "libs/google/api/annotations.proto";
+import "libs/protoc-gen-openapiv2/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+      title: "Tables service gateway";
+      version: "1.0";
+      contact: {
+        name: "laurkan";
+        email: "kanya384@mail.ru";
+      };
+    };
+    security_definitions: {
+        security: {
+            key: "Bearer"
+            value: {
+                type: TYPE_API_KEY
+                in: IN_HEADER
+                name: "Authorization"
+                description: "Authentication token, prefixed by Bearer: Bearer <token>"
+            }
+        }
+    };
+    security: {
+        security_requirement: {
+          key: "Bearer"
+        }
+    };
+      
+};
+
+service Tables {
+    rpc CreateTable (CreateTableRequest) returns (CreateTableResponse) {
+        option (google.api.http) = {
+            put: "/table"
+            body: "*"
+        };
+    }
+
+    rpc UpdateTable (UpdateTableRequest) returns (UpdateTableResponse) {
+        option (google.api.http) = {
+            post: "/table"
+            body: "*"
+        };
+    }
+
+    rpc DeleteTable (DeleteTableRequest) returns (DeleteTableResponse) {
+        option (google.api.http) = {
+            delete: "/table"
+            body: "*"
+        };
+    }
+
+    rpc ReadTablesOfRoom (ReadTablesOfRoomRequest) returns (ReadTablesOfRoomResponse) {
+        option (google.api.http) = {
+            get: "/table/{roomId}"
+            body: "*"
+        };
+    }
+
+    rpc CreatePanorama (CreatePanoramaRequest) returns (CreatePanoramaResponse) {
+        option (google.api.http) = {
+            put: "/panorama"
+            body: "*"
+        };
+    }
+
+    rpc UpdatePanorama (UpdatePanoramaRequest) returns (UpdatePanoramaResponse) {
+        option (google.api.http) = {
+            post: "/panorama"
+            body: "*"
+        };
+    }
+
+    rpc DeletePanorama (DeletePanoramaRequest) returns (DeletePanoramaResponse) {
+        option (google.api.http) = {
+            delete: "/panorama"
+            body: "*"
+        };
+    }
+
+    rpc ReadPanoramasOfRoom (ReadPanoramasOfRoomRequest) returns (ReadPanoramasOfRoomResponse) {
+        option (google.api.http) = {
+            delete: "/panorama/{roomId}"
+            body: "*"
+        };
+    }
+
+    rpc CreateRoom (CreateRoomRequest) returns (CreateRoomResponse) {
+        option (google.api.http) = {
+            put: "/room"
+            body: "*"
+        };
+    }
+
+    rpc UpdateRoom (UpdateRoomRequest) returns (UpdateRoomResponse) {
+        option (google.api.http) = {
+            post: "/room"
+            body: "*"
+        };
+    }
+
+    rpc DeleteRoom (DeleteRoomRequest) returns (DeleteRoomResponse) {
+        option (google.api.http) = {
+            delete: "/room"
+            body: "*"
+        };
+    }
+
+    rpc ReadRoomsById (ReadRoomsOfProjectRequest) returns (ReadRoomsOfProjectResponse) {
+        option (google.api.http) = {
+            delete: "/room/{roomId}"
+            body: "*"
+        };
+    }
+
+    rpc ReadRoomsOfProject (ReadRoomsOfProjectRequest) returns (ReadRoomsOfProjectResponse) {
+        option (google.api.http) = {
+            delete: "/room/{projectId}"
+            body: "*"
+        };
+    }
+
+
+    rpc CreatePoint (CreatePointRequest) returns (CreatePointResponse) {
+        option (google.api.http) = {
+            put: "/point"
+            body: "*"
+        };
+    }
+
+    rpc UpdatePoint (UpdatePointRequest) returns (UpdatePointResponse) {
+        option (google.api.http) = {
+            post: "/point"
+            body: "*"
+        };
+    }
+
+    rpc DeletePoint (DeletePointRequest) returns (DeletePointResponse) {
+        option (google.api.http) = {
+            delete: "/point"
+            body: "*"
+        };
+    }
+
+    rpc ReadPointsOfPanorama (ReadPointsOfPanoramaRequest) returns (ReadPointsOfPanoramaResponse) {
+        option (google.api.http) = {
+            delete: "/point/{panoramaId}"
+            body: "*"
+        };
+    }
+
+    rpc CreateTransition (CreateTransitionRequest) returns (CreateTransitionResponse) {
+        option (google.api.http) = {
+            put: "/point"
+            body: "*"
+        };
+    }
+
+    rpc UpdateTransition (UpdateTransitionRequest) returns (UpdateTransitionResponse) {
+        option (google.api.http) = {
+            post: "/point"
+            body: "*"
+        };
+    }
+
+    rpc DeleteTransition (DeleteTransitionRequest) returns (DeleteTransitionResponse) {
+        option (google.api.http) = {
+            delete: "/point"
+            body: "*"
+        };
+    }
+
+    rpc ReadTransitionsOfPanorama (ReadTransitionsOfPanoramaRequest) returns (ReadTransitionsOfPanoramaResponse) {
+        option (google.api.http) = {
+            delete: "/point/{panoramaId}"
+            body: "*"
+        };
+    }
+
+
+}
+
+message CreateTransitionRequest {
+    string panoramaId = 1;
+    string transitionPanoramaId = 2;
+    float x = 3;
+    float y = 4;
+    float z = 5;
+}
+
+message CreateTransitionResponse{
+    TransitionResponse response =1;
+}
+
+message TransitionResponse {
+    string id = 1;
+    string panoramaId = 2;
+    string transitionPanoramaId = 3;
+    float x = 4;
+    float y = 5;
+    float z = 6;
+    google.protobuf.Timestamp createdAt = 8;
+    google.protobuf.Timestamp modifiedAt = 9;
+}
+
+message UpdateTransitionRequest {
+    string id = 1;
+    string panoramaId = 2;
+    string transitionPanoramaId = 3;
+    float x = 4;
+    float y = 5;
+    float z = 6;
+}
+
+message UpdateTransitionResponse{
+    TransitionResponse response =1;
+}
+
+message DeleteTransitionRequest {
+    string id = 1;
+}
+
+message DeleteTransitionResponse {
+    bool success = 1;
+}
+
+message ReadTransitionsOfPanoramaRequest {
+    string panoramaId = 1;
+}
+
+message ReadTransitionsOfPanoramaResponse {
+    repeated PanoramaResponse response =1;
+}
+
+
+
+
+message CreatePointRequest {
+    string tableId = 1;
+    string panoramaId = 2;
+    float x = 3;
+    float y = 4;
+    float z = 5;
+}
+
+message CreatePointResponse{
+    PointResponse response =1;
+}
+
+message PointResponse {
+    string id = 1;
+    string tableId = 2;
+    string panoramaId = 3;
+    float x = 4;
+    float y = 5;
+    float z = 6;
+    google.protobuf.Timestamp createdAt = 8;
+    google.protobuf.Timestamp modifiedAt = 9;
+}
+
+message UpdatePointRequest {
+    string id = 1;
+    string tableId = 2;
+    string panoramaId = 3;
+    float x = 4;
+    float y = 5;
+    float z = 6;
+}
+
+message UpdatePointResponse{
+    PointResponse response =1;
+}
+
+message DeletePointRequest {
+    string id = 1;
+}
+
+message DeletePointResponse {
+    bool success = 1;
+}
+
+message ReadPointsOfPanoramaRequest {
+    string panoramaId = 1;
+}
+
+message ReadPointsOfPanoramaResponse {
+    repeated PanoramaResponse response =1;
+}
+
+message CreateRoomRequest {
+    string projectId = 1;
+    string name = 2;
+    string description = 3;
+    bool active = 4;
+    string photo = 5;
+    bool mainRoom = 6;
+}
+
+message CreateRoomResponse{
+    RoomResponse response =1;
+}
+
+message RoomResponse {
+    string id = 1;
+    string projectId = 2;
+    string name = 3;
+    string description = 4;
+    bool active = 5;
+    string photo = 6;
+    bool mainRoom = 7;
+    google.protobuf.Timestamp createdAt = 8;
+    google.protobuf.Timestamp modifiedAt = 9;
+}
+
+message UpdateRoomRequest {
+    string id = 1;
+    string projectId = 2;
+    string name = 3;
+    string description = 4;
+    bool active = 5;
+    string photo = 6;
+    bool mainRoom = 7;
+}
+
+message UpdateRoomResponse{
+    RoomResponse response =1;
+}
+
+message DeleteRoomRequest {
+    string id = 1;
+}
+
+message DeleteRoomResponse {
+    bool success = 1;
+}
+
+message ReadRoomsOfProjectRequest {
+    string projectId = 1;
+}
+
+message ReadRoomsOfProjectResponse {
+    repeated PanoramaResponse response =1;
+}
+
+message ReadRoomsByIdRequest {
+    string rommId = 1;
+}
+
+message ReadRoomsByIdResponse {
+    PanoramaResponse response =1;
+}
+
+
+
+message CreatePanoramaRequest {
+    string roomId = 1;
+    bool main = 2;
+    string photo = 3;
+}
+
+message CreatePanoramaResponse{
+    PanoramaResponse response =1;
+}
+
+message UpdatePanoramaRequest {
+    string id = 1;
+    string roomId = 2;
+    bool main = 3;
+    string photo = 4;
+}
+
+message UpdatePanoramaResponse{
+    PanoramaResponse response =1;
+}
+
+message DeletePanoramaRequest {
+    string id = 1;
+}
+
+message DeletePanoramaResponse {
+    bool success = 1;
+}
+
+message ReadPanoramasOfRoomRequest {
+    string roomId = 1;
+}
+
+message ReadPanoramasOfRoomResponse {
+    repeated PanoramaResponse response =1;
+}
+
+message PanoramaResponse {
+    string id = 1;
+    string roomId = 2;
+    bool main = 3;
+    string photo = 4;
+    google.protobuf.Timestamp createdAt = 5;
+    google.protobuf.Timestamp modifiedAt = 6;
+}
+
+message CreateTableRequest {
+    string roomId = 1;
+    string name = 2;
+    int32 personsCount = 3;
+    bool active = 4;
+    bool gameConsole = 5;
+    bool window = 6;
+    bool karaoke = 7;
+}
+
+message CreateTableResponse{
+    TableResponse response =1;
+}
+
+message UpdateTableRequest {
+    string id = 1;
+    string roomId = 2;
+    string name = 3;
+    int32 personsCount = 4;
+    bool active = 5;
+    bool gameConsole = 6;
+    bool window = 7;
+    bool karaoke = 8;
+}
+
+message UpdateTableResponse{
+    TableResponse response =1;
+}
+
+
+message TableResponse {
+    string id = 1;
+    string roomId = 2;
+    string name = 3;
+    int32 personsCount = 4;
+    bool active = 5;
+    bool gameConsole = 6;
+    bool window = 7;
+    bool karaoke = 8;
+    google.protobuf.Timestamp createdAt = 9;
+    google.protobuf.Timestamp modifiedAt = 10;
+}
+
+message DeleteTableRequest {
+    string id = 1;
+}
+
+message DeleteTableResponse {
+    bool success = 1;
+}
+
+message ReadTablesOfRoomRequest {
+    string roomId = 1;
+}
+
+message ReadTablesOfRoomResponse {
+    repeated TableResponse response =1;
+}
