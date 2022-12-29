@@ -33,7 +33,7 @@ type TablesClient interface {
 	CreateRoom(ctx context.Context, in *CreateRoomRequest, opts ...grpc.CallOption) (*CreateRoomResponse, error)
 	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
 	DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error)
-	ReadRoomsById(ctx context.Context, in *ReadRoomsOfProjectRequest, opts ...grpc.CallOption) (*ReadRoomsOfProjectResponse, error)
+	ReadRoomsById(ctx context.Context, in *ReadRoomsByIdRequest, opts ...grpc.CallOption) (*ReadRoomsByIdResponse, error)
 	ReadRoomsOfProject(ctx context.Context, in *ReadRoomsOfProjectRequest, opts ...grpc.CallOption) (*ReadRoomsOfProjectResponse, error)
 	CreatePoint(ctx context.Context, in *CreatePointRequest, opts ...grpc.CallOption) (*CreatePointResponse, error)
 	UpdatePoint(ctx context.Context, in *UpdatePointRequest, opts ...grpc.CallOption) (*UpdatePointResponse, error)
@@ -152,8 +152,8 @@ func (c *tablesClient) DeleteRoom(ctx context.Context, in *DeleteRoomRequest, op
 	return out, nil
 }
 
-func (c *tablesClient) ReadRoomsById(ctx context.Context, in *ReadRoomsOfProjectRequest, opts ...grpc.CallOption) (*ReadRoomsOfProjectResponse, error) {
-	out := new(ReadRoomsOfProjectResponse)
+func (c *tablesClient) ReadRoomsById(ctx context.Context, in *ReadRoomsByIdRequest, opts ...grpc.CallOption) (*ReadRoomsByIdResponse, error) {
+	out := new(ReadRoomsByIdResponse)
 	err := c.cc.Invoke(ctx, "/grpc.Tables/ReadRoomsById", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -257,7 +257,7 @@ type TablesServer interface {
 	CreateRoom(context.Context, *CreateRoomRequest) (*CreateRoomResponse, error)
 	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
 	DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error)
-	ReadRoomsById(context.Context, *ReadRoomsOfProjectRequest) (*ReadRoomsOfProjectResponse, error)
+	ReadRoomsById(context.Context, *ReadRoomsByIdRequest) (*ReadRoomsByIdResponse, error)
 	ReadRoomsOfProject(context.Context, *ReadRoomsOfProjectRequest) (*ReadRoomsOfProjectResponse, error)
 	CreatePoint(context.Context, *CreatePointRequest) (*CreatePointResponse, error)
 	UpdatePoint(context.Context, *UpdatePointRequest) (*UpdatePointResponse, error)
@@ -307,7 +307,7 @@ func (UnimplementedTablesServer) UpdateRoom(context.Context, *UpdateRoomRequest)
 func (UnimplementedTablesServer) DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRoom not implemented")
 }
-func (UnimplementedTablesServer) ReadRoomsById(context.Context, *ReadRoomsOfProjectRequest) (*ReadRoomsOfProjectResponse, error) {
+func (UnimplementedTablesServer) ReadRoomsById(context.Context, *ReadRoomsByIdRequest) (*ReadRoomsByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadRoomsById not implemented")
 }
 func (UnimplementedTablesServer) ReadRoomsOfProject(context.Context, *ReadRoomsOfProjectRequest) (*ReadRoomsOfProjectResponse, error) {
@@ -549,7 +549,7 @@ func _Tables_DeleteRoom_Handler(srv interface{}, ctx context.Context, dec func(i
 }
 
 func _Tables_ReadRoomsById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadRoomsOfProjectRequest)
+	in := new(ReadRoomsByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -561,7 +561,7 @@ func _Tables_ReadRoomsById_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: "/grpc.Tables/ReadRoomsById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TablesServer).ReadRoomsById(ctx, req.(*ReadRoomsOfProjectRequest))
+		return srv.(TablesServer).ReadRoomsById(ctx, req.(*ReadRoomsByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
