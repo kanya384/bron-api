@@ -112,7 +112,7 @@ service Tables {
         };
     }
 
-    rpc ReadRoomsById (ReadRoomsOfProjectRequest) returns (ReadRoomsOfProjectResponse) {
+    rpc ReadRoomsById (ReadRoomsByIdRequest) returns (ReadRoomsByIdResponse) {
         option (google.api.http) = {
             delete: "/room/{roomId}"
             body: "*"
