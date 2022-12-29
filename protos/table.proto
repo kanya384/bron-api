@@ -350,7 +350,7 @@ message ReadRoomsByIdRequest {
 }
 
 message ReadRoomsByIdResponse {
-    PanoramaResponse response =1;
+    RoomResponse response =1;
 }
 
 
