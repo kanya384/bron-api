@@ -299,7 +299,6 @@ message CreateRoomRequest {
     string description = 3;
     bool active = 4;
     string photo = 5;
-    bool mainRoom = 6;
 }
 
 message CreateRoomResponse{
@@ -313,9 +312,8 @@ message RoomResponse {
     string description = 4;
     bool active = 5;
     string photo = 6;
-    bool mainRoom = 7;
-    google.protobuf.Timestamp createdAt = 8;
-    google.protobuf.Timestamp modifiedAt = 9;
+    google.protobuf.Timestamp createdAt = 7;
+    google.protobuf.Timestamp modifiedAt = 8;
 }
 
 message UpdateRoomRequest {
@@ -325,7 +323,6 @@ message UpdateRoomRequest {
     string description = 4;
     bool active = 5;
     string photo = 6;
-    bool mainRoom = 7;
 }
 
 message UpdateRoomResponse{
@@ -345,7 +342,7 @@ message ReadRoomsOfProjectRequest {
 }
 
 message ReadRoomsOfProjectResponse {
-    repeated PanoramaResponse response =1;
+    repeated RoomResponse response =1;
 }
 
 message ReadRoomsByIdRequest {
