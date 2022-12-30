@@ -235,7 +235,7 @@ message ReadTransitionsOfPanoramaRequest {
 }
 
 message ReadTransitionsOfPanoramaResponse {
-    repeated PanoramaResponse response =1;
+    repeated TransitionResponse response =1;
 }
 
 
@@ -290,7 +290,7 @@ message ReadPointsOfPanoramaRequest {
 }
 
 message ReadPointsOfPanoramaResponse {
-    repeated PanoramaResponse response =1;
+    repeated PointResponse response =1;
 }
 
 message CreateRoomRequest {
