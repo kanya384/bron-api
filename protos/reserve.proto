@@ -132,7 +132,7 @@ message DeleteReserveResponse {
 }
 
 message ReadReservesOfGuestRequest {
-    string panoramaId = 1;
+    string guestId = 1;
 }
 
 message ReadReservesOfGuestResponse {
