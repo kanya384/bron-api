@@ -4,6 +4,7 @@ genproto: ## generates go package from proto files
 	@protoc  protos/auth.proto --go-grpc_out=./go/auth --go_out=./go/auth
 	@protoc  protos/catalog.proto --go-grpc_out=./go/catalog --go_out=./go/catalog
 	@protoc  protos/table.proto --go-grpc_out=./go/table --go_out=./go/table
+	@protoc  protos/reserve.proto --go-grpc_out=./go/reserve --go_out=./go/reserve
 .PHONY: genproto
 
 help: ## Display this help screen
