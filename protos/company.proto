@@ -2,9 +2,9 @@ syntax = "proto3";
 package grpc;
 
 option go_package="./;grpc";
-import "google/protobuf/timestamp.proto";
-import "google/api/annotations.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
+import "libs/google/protobuf/timestamp.proto";
+import "libs/google/api/annotations.proto";
+import "libs/protoc-gen-openapiv2/options/annotations.proto";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
     info: {

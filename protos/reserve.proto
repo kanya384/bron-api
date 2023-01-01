@@ -39,29 +39,27 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 service Reserves {
     rpc CreateReserve (CreateReserveRequest) returns (CreateReserveResponse) {
         option (google.api.http) = {
-            put: "/table"
+            put: "/reserve"
             body: "*"
         };
     }
 
     rpc UpdateReserve (UpdateReserveRequest) returns (UpdateReserveResponse) {
         option (google.api.http) = {
-            post: "/table"
+            post: "/reserve"
             body: "*"
         };
     }
 
     rpc DeleteReserve (DeleteReserveRequest) returns (DeleteReserveResponse) {
         option (google.api.http) = {
-            delete: "/table"
-            body: "*"
+            delete: "/reserve"
         };
     }
 
     rpc ReadReservesOfGuest (ReadReservesOfGuestRequest) returns (ReadReservesOfGuestResponse) {
         option (google.api.http) = {
-            get: "/table/{roomId}"
-            body: "*"
+            get: "/reserve/{guestId}"
         };
     }
 }
