@@ -34,21 +34,45 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 };
 
 service Auth {
- rpc SignUp (SignUpRequest) returns (SignUpResponse) {
+ rpc SignUpAdministrator (SignUpRequest) returns (SignUpResponse) {
     option (google.api.http) = {
-        post: "/auth/signUp"
+        post: "/auth/sign-up/administrator"
         body: "*"
     };
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
         security: { }
     };
  }
- rpc SignIn (SignInRequest) returns (SignInResponse) {}
- rpc VerifyEmail (VerifyEmailRequest) returns (VerifyEmailResponse) {}
- rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {}
+ rpc SignUpUser (SignUpRequest) returns (SignUpResponse) {
+    option (google.api.http) = {
+        post: "/auth/sign-up/user"
+        body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+        security: { }
+    };
+ }
+ rpc SignIn (SignInRequest) returns (SignInResponse) {
+    option (google.api.http) = {
+        post: "/auth/sign-in"
+        body: "*"
+    };
+ }
+ rpc VerifyEmail (VerifyEmailRequest) returns (VerifyEmailResponse) {
+    option (google.api.http) = {
+        post: "/auth/verify-mail"
+        body: "*"
+    };
+ }
+ rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {
+    option (google.api.http) = {
+        post: "/auth/reset-password"
+        body: "*"
+    };
+ }
  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
     option (google.api.http) = {
-        post: "/auth/refreshToken"
+        post: "/auth/refresh-token"
         body: "*"
     };
  }
@@ -69,7 +93,6 @@ message SignUpRequest {
     string phone = 3;
     string pass = 4;
     string email = 5;
-    string role = 6; 
 }
 
 message SignUpResponse {

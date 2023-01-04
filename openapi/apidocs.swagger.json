@@ -32,7 +32,7 @@
     "application/json"
   ],
   "paths": {
-    "/auth/refreshToken": {
+    "/auth/refresh-token": {
       "post": {
         "operationId": "Auth_RefreshToken",
         "responses": {
@@ -64,9 +64,73 @@
         ]
       }
     },
-    "/auth/signUp": {
+    "/auth/reset-password": {
       "post": {
-        "operationId": "Auth_SignUp",
+        "operationId": "Auth_ResetPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcResetPasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcResetPasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/auth/sign-in": {
+      "post": {
+        "operationId": "Auth_SignIn",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcSignInResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcSignInRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/auth/sign-up/administrator": {
+      "post": {
+        "operationId": "Auth_SignUpAdministrator",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -96,6 +160,72 @@
           "Auth"
         ],
         "security": []
+      }
+    },
+    "/auth/sign-up/user": {
+      "post": {
+        "operationId": "Auth_SignUpUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcSignUpResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Intentionaly complicated message type to cover many features of Protobuf.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcSignUpRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Auth"
+        ],
+        "security": []
+      }
+    },
+    "/auth/verify-mail": {
+      "post": {
+        "operationId": "Auth_VerifyEmail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcVerifyEmailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcVerifyEmailRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Auth"
+        ]
       }
     },
     "/category": {
@@ -1836,6 +1966,9 @@
         }
       }
     },
+    "grpcResetPasswordRequest": {
+      "type": "object"
+    },
     "grpcResetPasswordResponse": {
       "type": "object"
     },
@@ -1867,6 +2000,20 @@
         "modifiedAt": {
           "type": "string",
           "format": "date-time"
+        }
+      }
+    },
+    "grpcSignInRequest": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "pass": {
+          "type": "string"
+        },
+        "device": {
+          "$ref": "#/definitions/grpcDeviceRequest"
         }
       }
     },
@@ -1905,9 +2052,6 @@
           "type": "string"
         },
         "email": {
-          "type": "string"
-        },
-        "role": {
           "type": "string"
         }
       },
@@ -2284,6 +2428,14 @@
       "properties": {
         "response": {
           "$ref": "#/definitions/grpcTransitionResponse"
+        }
+      }
+    },
+    "grpcVerifyEmailRequest": {
+      "type": "object",
+      "properties": {
+        "verificationCode": {
+          "type": "string"
         }
       }
     },
