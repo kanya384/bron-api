@@ -381,6 +381,36 @@
       }
     },
     "/company": {
+      "post": {
+        "operationId": "Company_UpdateCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      },
       "put": {
         "operationId": "Company_CreateCompany",
         "responses": {
@@ -405,6 +435,64 @@
             "schema": {
               "$ref": "#/definitions/grpcCreateCompanyRequest"
             }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/company/{id}": {
+      "get": {
+        "operationId": "Company_ReadCompanyByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadCompanyByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      },
+      "delete": {
+        "operationId": "Company_DeleteCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "tags": [
@@ -2162,6 +2250,24 @@
       "properties": {
         "response": {
           "$ref": "#/definitions/grpcCategoryResponse"
+        }
+      }
+    },
+    "grpcUpdateCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "inn": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "address": {
+          "type": "string"
         }
       }
     },
