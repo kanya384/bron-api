@@ -26,6 +26,10 @@ type CompanyClient interface {
 	UpdateCompany(ctx context.Context, in *UpdateCompanyRequest, opts ...grpc.CallOption) (*UpdateCompanyResponse, error)
 	DeleteCompany(ctx context.Context, in *DeleteCompanyRequest, opts ...grpc.CallOption) (*DeleteCompanyResponse, error)
 	ReadCompanyByID(ctx context.Context, in *ReadCompanyByIdRequest, opts ...grpc.CallOption) (*ReadCompanyByIdResponse, error)
+	CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
+	UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error)
+	DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error)
+	ReadProjectsOfUser(ctx context.Context, in *ReadProjectsOfUserRequest, opts ...grpc.CallOption) (*ReadProjectsOfUserResponse, error)
 }
 
 type companyClient struct {
@@ -72,6 +76,42 @@ func (c *companyClient) ReadCompanyByID(ctx context.Context, in *ReadCompanyById
 	return out, nil
 }
 
+func (c *companyClient) CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error) {
+	out := new(CreateProjectResponse)
+	err := c.cc.Invoke(ctx, "/grpc.Company/CreateProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *companyClient) UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error) {
+	out := new(UpdateProjectResponse)
+	err := c.cc.Invoke(ctx, "/grpc.Company/UpdateProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *companyClient) DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error) {
+	out := new(DeleteProjectResponse)
+	err := c.cc.Invoke(ctx, "/grpc.Company/DeleteProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *companyClient) ReadProjectsOfUser(ctx context.Context, in *ReadProjectsOfUserRequest, opts ...grpc.CallOption) (*ReadProjectsOfUserResponse, error) {
+	out := new(ReadProjectsOfUserResponse)
+	err := c.cc.Invoke(ctx, "/grpc.Company/ReadProjectsOfUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CompanyServer is the server API for Company service.
 // All implementations must embed UnimplementedCompanyServer
 // for forward compatibility
@@ -80,6 +120,10 @@ type CompanyServer interface {
 	UpdateCompany(context.Context, *UpdateCompanyRequest) (*UpdateCompanyResponse, error)
 	DeleteCompany(context.Context, *DeleteCompanyRequest) (*DeleteCompanyResponse, error)
 	ReadCompanyByID(context.Context, *ReadCompanyByIdRequest) (*ReadCompanyByIdResponse, error)
+	CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
+	UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error)
+	DeleteProject(context.Context, *DeleteProjectRequest) (*DeleteProjectResponse, error)
+	ReadProjectsOfUser(context.Context, *ReadProjectsOfUserRequest) (*ReadProjectsOfUserResponse, error)
 	mustEmbedUnimplementedCompanyServer()
 }
 
@@ -98,6 +142,18 @@ func (UnimplementedCompanyServer) DeleteCompany(context.Context, *DeleteCompanyR
 }
 func (UnimplementedCompanyServer) ReadCompanyByID(context.Context, *ReadCompanyByIdRequest) (*ReadCompanyByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadCompanyByID not implemented")
+}
+func (UnimplementedCompanyServer) CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
+}
+func (UnimplementedCompanyServer) UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
+}
+func (UnimplementedCompanyServer) DeleteProject(context.Context, *DeleteProjectRequest) (*DeleteProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
+}
+func (UnimplementedCompanyServer) ReadProjectsOfUser(context.Context, *ReadProjectsOfUserRequest) (*ReadProjectsOfUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadProjectsOfUser not implemented")
 }
 func (UnimplementedCompanyServer) mustEmbedUnimplementedCompanyServer() {}
 
@@ -184,6 +240,78 @@ func _Company_ReadCompanyByID_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Company_CreateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServer).CreateProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc.Company/CreateProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServer).CreateProject(ctx, req.(*CreateProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Company_UpdateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServer).UpdateProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc.Company/UpdateProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServer).UpdateProject(ctx, req.(*UpdateProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Company_DeleteProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServer).DeleteProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc.Company/DeleteProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServer).DeleteProject(ctx, req.(*DeleteProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Company_ReadProjectsOfUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadProjectsOfUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServer).ReadProjectsOfUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc.Company/ReadProjectsOfUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServer).ReadProjectsOfUser(ctx, req.(*ReadProjectsOfUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Company_ServiceDesc is the grpc.ServiceDesc for Company service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -206,6 +334,22 @@ var Company_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReadCompanyByID",
 			Handler:    _Company_ReadCompanyByID_Handler,
+		},
+		{
+			MethodName: "CreateProject",
+			Handler:    _Company_CreateProject_Handler,
+		},
+		{
+			MethodName: "UpdateProject",
+			Handler:    _Company_UpdateProject_Handler,
+		},
+		{
+			MethodName: "DeleteProject",
+			Handler:    _Company_DeleteProject_Handler,
+		},
+		{
+			MethodName: "ReadProjectsOfUser",
+			Handler:    _Company_ReadProjectsOfUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
