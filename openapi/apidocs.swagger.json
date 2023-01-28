@@ -381,6 +381,26 @@
       }
     },
     "/api/company": {
+      "get": {
+        "operationId": "Company_ReadCompanyOfuser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadCompanyOfUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Company"
+        ]
+      },
       "post": {
         "operationId": "Company_UpdateCompany",
         "responses": {
@@ -2084,6 +2104,14 @@
       }
     },
     "grpcReadCompanyByIdResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/grpcCompanyResponse"
+        }
+      }
+    },
+    "grpcReadCompanyOfUserResponse": {
       "type": "object",
       "properties": {
         "response": {

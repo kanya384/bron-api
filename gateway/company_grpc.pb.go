@@ -25,6 +25,7 @@ type CompanyClient interface {
 	CreateCompany(ctx context.Context, in *CreateCompanyRequest, opts ...grpc.CallOption) (*CreateCompanyResponse, error)
 	UpdateCompany(ctx context.Context, in *UpdateCompanyRequest, opts ...grpc.CallOption) (*UpdateCompanyResponse, error)
 	DeleteCompany(ctx context.Context, in *DeleteCompanyRequest, opts ...grpc.CallOption) (*DeleteCompanyResponse, error)
+	ReadCompanyOfuser(ctx context.Context, in *ReadCompanyOfUserRequest, opts ...grpc.CallOption) (*ReadCompanyOfUserResponse, error)
 	ReadCompanyByID(ctx context.Context, in *ReadCompanyByIdRequest, opts ...grpc.CallOption) (*ReadCompanyByIdResponse, error)
 	CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
 	UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error)
@@ -61,6 +62,15 @@ func (c *companyClient) UpdateCompany(ctx context.Context, in *UpdateCompanyRequ
 func (c *companyClient) DeleteCompany(ctx context.Context, in *DeleteCompanyRequest, opts ...grpc.CallOption) (*DeleteCompanyResponse, error) {
 	out := new(DeleteCompanyResponse)
 	err := c.cc.Invoke(ctx, "/grpc.Company/DeleteCompany", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *companyClient) ReadCompanyOfuser(ctx context.Context, in *ReadCompanyOfUserRequest, opts ...grpc.CallOption) (*ReadCompanyOfUserResponse, error) {
+	out := new(ReadCompanyOfUserResponse)
+	err := c.cc.Invoke(ctx, "/grpc.Company/ReadCompanyOfuser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -119,6 +129,7 @@ type CompanyServer interface {
 	CreateCompany(context.Context, *CreateCompanyRequest) (*CreateCompanyResponse, error)
 	UpdateCompany(context.Context, *UpdateCompanyRequest) (*UpdateCompanyResponse, error)
 	DeleteCompany(context.Context, *DeleteCompanyRequest) (*DeleteCompanyResponse, error)
+	ReadCompanyOfuser(context.Context, *ReadCompanyOfUserRequest) (*ReadCompanyOfUserResponse, error)
 	ReadCompanyByID(context.Context, *ReadCompanyByIdRequest) (*ReadCompanyByIdResponse, error)
 	CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
 	UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error)
@@ -139,6 +150,9 @@ func (UnimplementedCompanyServer) UpdateCompany(context.Context, *UpdateCompanyR
 }
 func (UnimplementedCompanyServer) DeleteCompany(context.Context, *DeleteCompanyRequest) (*DeleteCompanyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCompany not implemented")
+}
+func (UnimplementedCompanyServer) ReadCompanyOfuser(context.Context, *ReadCompanyOfUserRequest) (*ReadCompanyOfUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadCompanyOfuser not implemented")
 }
 func (UnimplementedCompanyServer) ReadCompanyByID(context.Context, *ReadCompanyByIdRequest) (*ReadCompanyByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadCompanyByID not implemented")
@@ -218,6 +232,24 @@ func _Company_DeleteCompany_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CompanyServer).DeleteCompany(ctx, req.(*DeleteCompanyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Company_ReadCompanyOfuser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadCompanyOfUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServer).ReadCompanyOfuser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc.Company/ReadCompanyOfuser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServer).ReadCompanyOfuser(ctx, req.(*ReadCompanyOfUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -330,6 +362,10 @@ var Company_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteCompany",
 			Handler:    _Company_DeleteCompany_Handler,
+		},
+		{
+			MethodName: "ReadCompanyOfuser",
+			Handler:    _Company_ReadCompanyOfuser_Handler,
 		},
 		{
 			MethodName: "ReadCompanyByID",

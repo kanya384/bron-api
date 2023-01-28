@@ -56,6 +56,12 @@ service Company {
         };
     }
 
+    rpc ReadCompanyOfuser (ReadCompanyOfUserRequest) returns (ReadCompanyOfUserResponse) {
+        option (google.api.http) = {
+            get: "/api/company"
+        };
+    }
+
     rpc ReadCompanyByID (ReadCompanyByIdRequest) returns (ReadCompanyByIdResponse) {
         option (google.api.http) = {
             get: "/api/company/{id}"
@@ -179,6 +185,13 @@ message ReadCompanyByIdRequest {
 }
 
 message ReadCompanyByIdResponse {
+    CompanyResponse response =1;
+}
+
+message ReadCompanyOfUserRequest {
+}
+
+message ReadCompanyOfUserResponse {
     CompanyResponse response =1;
 }
 
