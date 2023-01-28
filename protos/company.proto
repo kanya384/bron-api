@@ -36,15 +36,112 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 
 
 service Company {
- rpc CreateCompany (CreateCompanyRequest) returns (CreateCompanyResponse) {
-    option (google.api.http) = {
-        put: "/company"
-        body: "*"
-    };
- }
- rpc UpdateCompany (UpdateCompanyRequest) returns (UpdateCompanyResponse) {}
- rpc DeleteCompany (DeleteCompanyRequest) returns (DeleteCompanyResponse) {}
- rpc ReadCompanyByID (ReadCompanyByIdRequest) returns (ReadCompanyByIdResponse) {}
+    rpc CreateCompany (CreateCompanyRequest) returns (CreateCompanyResponse) {
+        option (google.api.http) = {
+            put: "/company"
+            body: "*"
+        };
+    }
+
+    rpc UpdateCompany (UpdateCompanyRequest) returns (UpdateCompanyResponse) {
+        option (google.api.http) = {
+            post: "/company"
+            body: "*"
+        };
+    }
+
+    rpc DeleteCompany (DeleteCompanyRequest) returns (DeleteCompanyResponse) {
+        option (google.api.http) = {
+            delete: "/company/{id}"
+        };
+    }
+
+    rpc ReadCompanyByID (ReadCompanyByIdRequest) returns (ReadCompanyByIdResponse) {
+        option (google.api.http) = {
+            get: "/company/{id}"
+        };
+    }
+
+    rpc CreateProject (CreateProjectRequest) returns (CreateProjectResponse) {
+        option (google.api.http) = {
+            put: "/project",
+            body: "*"
+        };
+    }
+
+    rpc UpdateProject (UpdateProjectRequest) returns (UpdateProjectResponse) {
+        option (google.api.http) = {
+            post: "/project",
+            body: "*"
+        };
+    }
+
+    rpc DeleteProject (DeleteProjectRequest) returns (DeleteProjectResponse) {
+        option (google.api.http) = {
+            delete: "/project/{id}"
+        };
+    }
+
+    rpc ReadProjectsOfUser (ReadProjectsOfUserRequest) returns (ReadProjectsOfUserResponse) {
+        option (google.api.http) = {
+            get: "/project"
+        };
+    }
+}
+
+message CreateProjectRequest {
+    string name = 1;
+    string description = 2;
+    string address = 3;
+    float longitude = 4;
+    float latitiude = 5;
+    bytes photo = 6;
+}
+
+message CreateProjectResponse{
+    ProjectResponse response =1;
+}
+
+message UpdateProjectRequest {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string address = 4;
+    float longitude = 5;
+    float latitiude = 6;
+    bytes photo = 7;
+}
+
+message UpdateProjectResponse{
+    ProjectResponse response =1;
+}
+
+message DeleteProjectRequest {
+    string id = 1;
+}
+
+message DeleteProjectResponse {
+    bool success = 1;
+}
+
+message ReadProjectsOfUserRequest {
+}
+
+message ReadProjectsOfUserResponse {
+    repeated ProjectResponse projects =1;
+}
+
+message ProjectResponse {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string address = 4;
+    string photo = 5;
+    float longitude = 6;
+    float latitiude = 7;
+    string companyId = 8;
+    google.protobuf.Timestamp createdAt = 9;
+    google.protobuf.Timestamp modifiedAt = 10;
 }
 
 message CreateCompanyRequest {
@@ -68,6 +165,7 @@ message UpdateCompanyResponse{
     CompanyResponse response =1;
 }
 
+
 message DeleteCompanyRequest {
     string id = 1;
 }
@@ -86,9 +184,10 @@ message ReadCompanyByIdResponse {
 
 message CompanyResponse {
     string id = 1;
-    string name = 2;
-    uint32 inn = 3;
-    string address = 4;
-    google.protobuf.Timestamp createdAt = 5;
-    google.protobuf.Timestamp modifiedAt = 6;
+    string userId = 2;
+    string name = 3;
+    uint32 inn = 4;
+    string address = 5;
+    google.protobuf.Timestamp createdAt = 6;
+    google.protobuf.Timestamp modifiedAt = 7;
 }

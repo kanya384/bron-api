@@ -382,6 +382,36 @@
       }
     },
     "/company": {
+      "post": {
+        "operationId": "Company_UpdateCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      },
       "put": {
         "operationId": "Company_CreateCompany",
         "responses": {
@@ -406,6 +436,64 @@
             "schema": {
               "$ref": "#/definitions/grpcCreateCompanyRequest"
             }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/company/{id}": {
+      "get": {
+        "operationId": "Company_ReadCompanyByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadCompanyByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      },
+      "delete": {
+        "operationId": "Company_DeleteCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "tags": [
@@ -742,6 +830,118 @@
         ],
         "tags": [
           "Catalog"
+        ]
+      }
+    },
+    "/project": {
+      "get": {
+        "operationId": "Company_ReadProjectsOfUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadProjectsOfUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Company"
+        ]
+      },
+      "post": {
+        "operationId": "Company_UpdateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      },
+      "put": {
+        "operationId": "Company_CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/project/{id}": {
+      "delete": {
+        "operationId": "Company_DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Company"
         ]
       }
     },
@@ -1289,6 +1489,9 @@
         "id": {
           "type": "string"
         },
+        "userId": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
@@ -1439,6 +1642,40 @@
       "properties": {
         "response": {
           "$ref": "#/definitions/grpcProductResponse"
+        }
+      }
+    },
+    "grpcCreateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "float"
+        },
+        "latitiude": {
+          "type": "number",
+          "format": "float"
+        },
+        "photo": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "grpcCreateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/grpcProjectResponse"
         }
       }
     },
@@ -1628,6 +1865,14 @@
         }
       }
     },
+    "grpcDeleteProjectResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
     "grpcDeleteReserveResponse": {
       "type": "object",
       "properties": {
@@ -1789,6 +2034,45 @@
         }
       }
     },
+    "grpcProjectResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "float"
+        },
+        "latitiude": {
+          "type": "number",
+          "format": "float"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
     "grpcReadCategoriesByProjectIdResponse": {
       "type": "object",
       "properties": {
@@ -1837,6 +2121,17 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/grpcProductResponse"
+          }
+        }
+      }
+    },
+    "grpcReadProjectsOfUserResponse": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/grpcProjectResponse"
           }
         }
       }
@@ -2166,6 +2461,24 @@
         }
       }
     },
+    "grpcUpdateCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "inn": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
     "grpcUpdateCompanyResponse": {
       "type": "object",
       "properties": {
@@ -2271,6 +2584,43 @@
       "properties": {
         "response": {
           "$ref": "#/definitions/grpcProductResponse"
+        }
+      }
+    },
+    "grpcUpdateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "float"
+        },
+        "latitiude": {
+          "type": "number",
+          "format": "float"
+        },
+        "photo": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "grpcUpdateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/grpcProjectResponse"
         }
       }
     },
