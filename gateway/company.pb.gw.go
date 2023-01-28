@@ -355,7 +355,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/CreateCompany", runtime.WithHTTPPathPattern("/company"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/CreateCompany", runtime.WithHTTPPathPattern("/api/company"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -380,7 +380,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/UpdateCompany", runtime.WithHTTPPathPattern("/company"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/UpdateCompany", runtime.WithHTTPPathPattern("/api/company"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -405,7 +405,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/DeleteCompany", runtime.WithHTTPPathPattern("/company/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/DeleteCompany", runtime.WithHTTPPathPattern("/api/company/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -430,7 +430,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/ReadCompanyByID", runtime.WithHTTPPathPattern("/company/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/ReadCompanyByID", runtime.WithHTTPPathPattern("/api/company/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -455,7 +455,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/CreateProject", runtime.WithHTTPPathPattern("/project"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/CreateProject", runtime.WithHTTPPathPattern("/api/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -480,7 +480,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/UpdateProject", runtime.WithHTTPPathPattern("/project"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/UpdateProject", runtime.WithHTTPPathPattern("/api/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -505,7 +505,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/DeleteProject", runtime.WithHTTPPathPattern("/project/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/DeleteProject", runtime.WithHTTPPathPattern("/api/project/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -530,7 +530,7 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/ReadProjectsOfUser", runtime.WithHTTPPathPattern("/project"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Company/ReadProjectsOfUser", runtime.WithHTTPPathPattern("/api/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -594,7 +594,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/CreateCompany", runtime.WithHTTPPathPattern("/company"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/CreateCompany", runtime.WithHTTPPathPattern("/api/company"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -616,7 +616,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/UpdateCompany", runtime.WithHTTPPathPattern("/company"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/UpdateCompany", runtime.WithHTTPPathPattern("/api/company"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -638,7 +638,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/DeleteCompany", runtime.WithHTTPPathPattern("/company/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/DeleteCompany", runtime.WithHTTPPathPattern("/api/company/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -660,7 +660,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/ReadCompanyByID", runtime.WithHTTPPathPattern("/company/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/ReadCompanyByID", runtime.WithHTTPPathPattern("/api/company/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -682,7 +682,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/CreateProject", runtime.WithHTTPPathPattern("/project"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/CreateProject", runtime.WithHTTPPathPattern("/api/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -704,7 +704,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/UpdateProject", runtime.WithHTTPPathPattern("/project"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/UpdateProject", runtime.WithHTTPPathPattern("/api/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -726,7 +726,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/DeleteProject", runtime.WithHTTPPathPattern("/project/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/DeleteProject", runtime.WithHTTPPathPattern("/api/project/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -748,7 +748,7 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/ReadProjectsOfUser", runtime.WithHTTPPathPattern("/project"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Company/ReadProjectsOfUser", runtime.WithHTTPPathPattern("/api/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -768,21 +768,21 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Company_CreateCompany_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"company"}, ""))
+	pattern_Company_CreateCompany_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "company"}, ""))
 
-	pattern_Company_UpdateCompany_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"company"}, ""))
+	pattern_Company_UpdateCompany_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "company"}, ""))
 
-	pattern_Company_DeleteCompany_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"company", "id"}, ""))
+	pattern_Company_DeleteCompany_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "company", "id"}, ""))
 
-	pattern_Company_ReadCompanyByID_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"company", "id"}, ""))
+	pattern_Company_ReadCompanyByID_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "company", "id"}, ""))
 
-	pattern_Company_CreateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"project"}, ""))
+	pattern_Company_CreateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "project"}, ""))
 
-	pattern_Company_UpdateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"project"}, ""))
+	pattern_Company_UpdateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "project"}, ""))
 
-	pattern_Company_DeleteProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"project", "id"}, ""))
+	pattern_Company_DeleteProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "project", "id"}, ""))
 
-	pattern_Company_ReadProjectsOfUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"project"}, ""))
+	pattern_Company_ReadProjectsOfUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "project"}, ""))
 )
 
 var (

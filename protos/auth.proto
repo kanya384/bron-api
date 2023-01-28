@@ -25,7 +25,6 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
             }
         }
     };
-    base_path: "/api/",
     security: {
         security_requirement: {
           key: "Bearer"
@@ -37,7 +36,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 service Auth {
  rpc SignUpAdministrator (SignUpRequest) returns (SignUpResponse) {
     option (google.api.http) = {
-        post: "/auth/sign-up/administrator"
+        post: "/api/auth/sign-up/administrator"
         body: "*"
     };
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
@@ -46,7 +45,7 @@ service Auth {
  }
  rpc SignUpUser (SignUpRequest) returns (SignUpResponse) {
     option (google.api.http) = {
-        post: "/auth/sign-up/user"
+        post: "/api/auth/sign-up/user"
         body: "*"
     };
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
@@ -55,25 +54,25 @@ service Auth {
  }
  rpc SignIn (SignInRequest) returns (SignInResponse) {
     option (google.api.http) = {
-        post: "/auth/sign-in"
+        post: "/api/auth/sign-in"
         body: "*"
     };
  }
  rpc VerifyEmail (VerifyEmailRequest) returns (VerifyEmailResponse) {
     option (google.api.http) = {
-        post: "/auth/verify-mail"
+        post: "/api/auth/verify-mail"
         body: "*"
     };
  }
  rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {
     option (google.api.http) = {
-        post: "/auth/reset-password"
+        post: "/api/auth/reset-password"
         body: "*"
     };
  }
  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
     option (google.api.http) = {
-        post: "/auth/refresh-token"
+        post: "/api/auth/refresh-token"
         body: "*"
     };
  }

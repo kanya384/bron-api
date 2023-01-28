@@ -909,7 +909,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreateTable", runtime.WithHTTPPathPattern("/table"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreateTable", runtime.WithHTTPPathPattern("/api/table"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -934,7 +934,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdateTable", runtime.WithHTTPPathPattern("/table"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdateTable", runtime.WithHTTPPathPattern("/api/table"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -959,7 +959,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeleteTable", runtime.WithHTTPPathPattern("/table/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeleteTable", runtime.WithHTTPPathPattern("/api/table/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -984,7 +984,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadTablesOfRoom", runtime.WithHTTPPathPattern("/table/{roomId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadTablesOfRoom", runtime.WithHTTPPathPattern("/api/table/{roomId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1009,7 +1009,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreatePanorama", runtime.WithHTTPPathPattern("/panorama"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreatePanorama", runtime.WithHTTPPathPattern("/api/panorama"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1034,7 +1034,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdatePanorama", runtime.WithHTTPPathPattern("/panorama"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdatePanorama", runtime.WithHTTPPathPattern("/api/panorama"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1059,7 +1059,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeletePanorama", runtime.WithHTTPPathPattern("/panorama"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeletePanorama", runtime.WithHTTPPathPattern("/api/panorama"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1084,7 +1084,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadPanoramasOfRoom", runtime.WithHTTPPathPattern("/panorama/{roomId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadPanoramasOfRoom", runtime.WithHTTPPathPattern("/api/panorama/{roomId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1109,7 +1109,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreateRoom", runtime.WithHTTPPathPattern("/room"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreateRoom", runtime.WithHTTPPathPattern("/api/room"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1134,7 +1134,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdateRoom", runtime.WithHTTPPathPattern("/room"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdateRoom", runtime.WithHTTPPathPattern("/api/room"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1159,7 +1159,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeleteRoom", runtime.WithHTTPPathPattern("/room"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeleteRoom", runtime.WithHTTPPathPattern("/api/room"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1184,7 +1184,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadRoomsById", runtime.WithHTTPPathPattern("/room/{roomId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadRoomsById", runtime.WithHTTPPathPattern("/api/room/{roomId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1209,7 +1209,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadRoomsOfProject", runtime.WithHTTPPathPattern("/room/{projectId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadRoomsOfProject", runtime.WithHTTPPathPattern("/api/room/{projectId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1234,7 +1234,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreatePoint", runtime.WithHTTPPathPattern("/point"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreatePoint", runtime.WithHTTPPathPattern("/api/point"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1259,7 +1259,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdatePoint", runtime.WithHTTPPathPattern("/point"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdatePoint", runtime.WithHTTPPathPattern("/api/point"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1284,7 +1284,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeletePoint", runtime.WithHTTPPathPattern("/point"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeletePoint", runtime.WithHTTPPathPattern("/api/point"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1309,7 +1309,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadPointsOfPanorama", runtime.WithHTTPPathPattern("/point/{panoramaId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadPointsOfPanorama", runtime.WithHTTPPathPattern("/api/point/{panoramaId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1334,7 +1334,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreateTransition", runtime.WithHTTPPathPattern("/transition"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/CreateTransition", runtime.WithHTTPPathPattern("/api/transition"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1359,7 +1359,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdateTransition", runtime.WithHTTPPathPattern("/transition"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/UpdateTransition", runtime.WithHTTPPathPattern("/api/transition"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1384,7 +1384,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeleteTransition", runtime.WithHTTPPathPattern("/transition/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/DeleteTransition", runtime.WithHTTPPathPattern("/api/transition/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1409,7 +1409,7 @@ func RegisterTablesHandlerServer(ctx context.Context, mux *runtime.ServeMux, ser
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadTransitionsOfPanorama", runtime.WithHTTPPathPattern("/transition/{panoramaId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Tables/ReadTransitionsOfPanorama", runtime.WithHTTPPathPattern("/api/transition/{panoramaId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1473,7 +1473,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreateTable", runtime.WithHTTPPathPattern("/table"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreateTable", runtime.WithHTTPPathPattern("/api/table"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1495,7 +1495,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdateTable", runtime.WithHTTPPathPattern("/table"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdateTable", runtime.WithHTTPPathPattern("/api/table"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1517,7 +1517,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeleteTable", runtime.WithHTTPPathPattern("/table/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeleteTable", runtime.WithHTTPPathPattern("/api/table/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1539,7 +1539,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadTablesOfRoom", runtime.WithHTTPPathPattern("/table/{roomId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadTablesOfRoom", runtime.WithHTTPPathPattern("/api/table/{roomId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1561,7 +1561,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreatePanorama", runtime.WithHTTPPathPattern("/panorama"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreatePanorama", runtime.WithHTTPPathPattern("/api/panorama"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1583,7 +1583,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdatePanorama", runtime.WithHTTPPathPattern("/panorama"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdatePanorama", runtime.WithHTTPPathPattern("/api/panorama"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1605,7 +1605,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeletePanorama", runtime.WithHTTPPathPattern("/panorama"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeletePanorama", runtime.WithHTTPPathPattern("/api/panorama"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1627,7 +1627,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadPanoramasOfRoom", runtime.WithHTTPPathPattern("/panorama/{roomId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadPanoramasOfRoom", runtime.WithHTTPPathPattern("/api/panorama/{roomId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1649,7 +1649,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreateRoom", runtime.WithHTTPPathPattern("/room"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreateRoom", runtime.WithHTTPPathPattern("/api/room"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1671,7 +1671,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdateRoom", runtime.WithHTTPPathPattern("/room"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdateRoom", runtime.WithHTTPPathPattern("/api/room"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1693,7 +1693,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeleteRoom", runtime.WithHTTPPathPattern("/room"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeleteRoom", runtime.WithHTTPPathPattern("/api/room"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1715,7 +1715,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadRoomsById", runtime.WithHTTPPathPattern("/room/{roomId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadRoomsById", runtime.WithHTTPPathPattern("/api/room/{roomId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1737,7 +1737,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadRoomsOfProject", runtime.WithHTTPPathPattern("/room/{projectId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadRoomsOfProject", runtime.WithHTTPPathPattern("/api/room/{projectId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1759,7 +1759,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreatePoint", runtime.WithHTTPPathPattern("/point"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreatePoint", runtime.WithHTTPPathPattern("/api/point"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1781,7 +1781,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdatePoint", runtime.WithHTTPPathPattern("/point"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdatePoint", runtime.WithHTTPPathPattern("/api/point"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1803,7 +1803,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeletePoint", runtime.WithHTTPPathPattern("/point"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeletePoint", runtime.WithHTTPPathPattern("/api/point"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1825,7 +1825,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadPointsOfPanorama", runtime.WithHTTPPathPattern("/point/{panoramaId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadPointsOfPanorama", runtime.WithHTTPPathPattern("/api/point/{panoramaId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1847,7 +1847,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreateTransition", runtime.WithHTTPPathPattern("/transition"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/CreateTransition", runtime.WithHTTPPathPattern("/api/transition"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1869,7 +1869,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdateTransition", runtime.WithHTTPPathPattern("/transition"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/UpdateTransition", runtime.WithHTTPPathPattern("/api/transition"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1891,7 +1891,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeleteTransition", runtime.WithHTTPPathPattern("/transition/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/DeleteTransition", runtime.WithHTTPPathPattern("/api/transition/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1913,7 +1913,7 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadTransitionsOfPanorama", runtime.WithHTTPPathPattern("/transition/{panoramaId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Tables/ReadTransitionsOfPanorama", runtime.WithHTTPPathPattern("/api/transition/{panoramaId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1933,47 +1933,47 @@ func RegisterTablesHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 }
 
 var (
-	pattern_Tables_CreateTable_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"table"}, ""))
+	pattern_Tables_CreateTable_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "table"}, ""))
 
-	pattern_Tables_UpdateTable_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"table"}, ""))
+	pattern_Tables_UpdateTable_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "table"}, ""))
 
-	pattern_Tables_DeleteTable_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"table", "id"}, ""))
+	pattern_Tables_DeleteTable_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "table", "id"}, ""))
 
-	pattern_Tables_ReadTablesOfRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"table", "roomId"}, ""))
+	pattern_Tables_ReadTablesOfRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "table", "roomId"}, ""))
 
-	pattern_Tables_CreatePanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"panorama"}, ""))
+	pattern_Tables_CreatePanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "panorama"}, ""))
 
-	pattern_Tables_UpdatePanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"panorama"}, ""))
+	pattern_Tables_UpdatePanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "panorama"}, ""))
 
-	pattern_Tables_DeletePanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"panorama"}, ""))
+	pattern_Tables_DeletePanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "panorama"}, ""))
 
-	pattern_Tables_ReadPanoramasOfRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"panorama", "roomId"}, ""))
+	pattern_Tables_ReadPanoramasOfRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "panorama", "roomId"}, ""))
 
-	pattern_Tables_CreateRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"room"}, ""))
+	pattern_Tables_CreateRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "room"}, ""))
 
-	pattern_Tables_UpdateRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"room"}, ""))
+	pattern_Tables_UpdateRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "room"}, ""))
 
-	pattern_Tables_DeleteRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"room"}, ""))
+	pattern_Tables_DeleteRoom_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "room"}, ""))
 
-	pattern_Tables_ReadRoomsById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"room", "roomId"}, ""))
+	pattern_Tables_ReadRoomsById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "room", "roomId"}, ""))
 
-	pattern_Tables_ReadRoomsOfProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"room", "projectId"}, ""))
+	pattern_Tables_ReadRoomsOfProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "room", "projectId"}, ""))
 
-	pattern_Tables_CreatePoint_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"point"}, ""))
+	pattern_Tables_CreatePoint_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "point"}, ""))
 
-	pattern_Tables_UpdatePoint_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"point"}, ""))
+	pattern_Tables_UpdatePoint_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "point"}, ""))
 
-	pattern_Tables_DeletePoint_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"point"}, ""))
+	pattern_Tables_DeletePoint_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "point"}, ""))
 
-	pattern_Tables_ReadPointsOfPanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"point", "panoramaId"}, ""))
+	pattern_Tables_ReadPointsOfPanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "point", "panoramaId"}, ""))
 
-	pattern_Tables_CreateTransition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"transition"}, ""))
+	pattern_Tables_CreateTransition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "transition"}, ""))
 
-	pattern_Tables_UpdateTransition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"transition"}, ""))
+	pattern_Tables_UpdateTransition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "transition"}, ""))
 
-	pattern_Tables_DeleteTransition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"transition", "id"}, ""))
+	pattern_Tables_DeleteTransition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "transition", "id"}, ""))
 
-	pattern_Tables_ReadTransitionsOfPanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"transition", "panoramaId"}, ""))
+	pattern_Tables_ReadTransitionsOfPanorama_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "transition", "panoramaId"}, ""))
 )
 
 var (

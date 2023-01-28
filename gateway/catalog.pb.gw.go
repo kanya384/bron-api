@@ -389,7 +389,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/CreateCategory", runtime.WithHTTPPathPattern("/category"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/CreateCategory", runtime.WithHTTPPathPattern("/api/category"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -414,7 +414,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/UpdateCategory", runtime.WithHTTPPathPattern("/category"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/UpdateCategory", runtime.WithHTTPPathPattern("/api/category"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -439,7 +439,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/DeleteCategory", runtime.WithHTTPPathPattern("/category/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/DeleteCategory", runtime.WithHTTPPathPattern("/api/category/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -464,7 +464,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/ReadCategoriesByProjectId", runtime.WithHTTPPathPattern("/category/{projectId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/ReadCategoriesByProjectId", runtime.WithHTTPPathPattern("/api/category/{projectId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -564,7 +564,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/category/{productId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/api/category/{productId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -628,7 +628,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/CreateCategory", runtime.WithHTTPPathPattern("/category"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/CreateCategory", runtime.WithHTTPPathPattern("/api/category"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -650,7 +650,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/UpdateCategory", runtime.WithHTTPPathPattern("/category"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/UpdateCategory", runtime.WithHTTPPathPattern("/api/category"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -672,7 +672,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/DeleteCategory", runtime.WithHTTPPathPattern("/category/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/DeleteCategory", runtime.WithHTTPPathPattern("/api/category/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -694,7 +694,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/ReadCategoriesByProjectId", runtime.WithHTTPPathPattern("/category/{projectId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/ReadCategoriesByProjectId", runtime.WithHTTPPathPattern("/api/category/{projectId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -782,7 +782,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/category/{productId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/api/category/{productId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -802,13 +802,13 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Catalog_CreateCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"category"}, ""))
+	pattern_Catalog_CreateCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "category"}, ""))
 
-	pattern_Catalog_UpdateCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"category"}, ""))
+	pattern_Catalog_UpdateCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "category"}, ""))
 
-	pattern_Catalog_DeleteCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"category", "id"}, ""))
+	pattern_Catalog_DeleteCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "category", "id"}, ""))
 
-	pattern_Catalog_ReadCategoriesByProjectId_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"category", "projectId"}, ""))
+	pattern_Catalog_ReadCategoriesByProjectId_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "category", "projectId"}, ""))
 
 	pattern_Catalog_CreateProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"product"}, ""))
 
@@ -816,7 +816,7 @@ var (
 
 	pattern_Catalog_DeleteProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"product", "id"}, ""))
 
-	pattern_Catalog_ReadProductsOfCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"category", "productId"}, ""))
+	pattern_Catalog_ReadProductsOfCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "category", "productId"}, ""))
 )
 
 var (

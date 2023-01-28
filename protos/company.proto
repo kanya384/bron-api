@@ -26,7 +26,6 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
             }
         }
     };
-    base_path: "/api/",
     security: {
         security_requirement: {
           key: "Bearer"
@@ -39,53 +38,53 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 service Company {
     rpc CreateCompany (CreateCompanyRequest) returns (CreateCompanyResponse) {
         option (google.api.http) = {
-            put: "/company"
+            put: "/api/company"
             body: "*"
         };
     }
 
     rpc UpdateCompany (UpdateCompanyRequest) returns (UpdateCompanyResponse) {
         option (google.api.http) = {
-            post: "/company"
+            post: "/api/company"
             body: "*"
         };
     }
 
     rpc DeleteCompany (DeleteCompanyRequest) returns (DeleteCompanyResponse) {
         option (google.api.http) = {
-            delete: "/company/{id}"
+            delete: "/api/company/{id}"
         };
     }
 
     rpc ReadCompanyByID (ReadCompanyByIdRequest) returns (ReadCompanyByIdResponse) {
         option (google.api.http) = {
-            get: "/company/{id}"
+            get: "/api/company/{id}"
         };
     }
 
     rpc CreateProject (CreateProjectRequest) returns (CreateProjectResponse) {
         option (google.api.http) = {
-            put: "/project",
+            put: "/api/project",
             body: "*"
         };
     }
 
     rpc UpdateProject (UpdateProjectRequest) returns (UpdateProjectResponse) {
         option (google.api.http) = {
-            post: "/project",
+            post: "/api/project",
             body: "*"
         };
     }
 
     rpc DeleteProject (DeleteProjectRequest) returns (DeleteProjectResponse) {
         option (google.api.http) = {
-            delete: "/project/{id}"
+            delete: "/api/project/{id}"
         };
     }
 
     rpc ReadProjectsOfUser (ReadProjectsOfUserRequest) returns (ReadProjectsOfUserResponse) {
         option (google.api.http) = {
-            get: "/project"
+            get: "/api/project"
         };
     }
 }

@@ -26,7 +26,6 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
             }
         }
     };
-    base_path: "/api/",
     security: {
         security_requirement: {
           key: "Bearer"
@@ -38,27 +37,27 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 service Catalog {
     rpc CreateCategory (CreateCategoryRequest) returns (CreateCategoryResponse) {
         option (google.api.http) = {
-            put: "/category"
+            put: "/api/category"
             body: "*"
         };
     }
 
     rpc UpdateCategory (UpdateCategoryRequest) returns (UpdateCategoryResponse) {
         option (google.api.http) = {
-            post: "/category"
+            post: "/api/category"
             body: "*"
         };
     }
 
     rpc DeleteCategory (DeleteCategoryRequest) returns (DeleteCategoryResponse) {
         option (google.api.http) = {
-            delete: "/category/{id}"
+            delete: "/api/category/{id}"
         };
     }
 
     rpc ReadCategoriesByProjectId (ReadCategoriesByProjectIdRequest) returns (ReadCategoriesByProjectIdResponse) {
         option (google.api.http) = {
-            get: "/category/{projectId}"
+            get: "/api/category/{projectId}"
         };
     }
 
@@ -84,7 +83,7 @@ service Catalog {
 
     rpc ReadProductsOfCategory (ReadProductsOfCategoryRequest) returns (ReadProductsOfCategoryResponse) {
         option (google.api.http) = {
-            get: "/category/{productId}"
+            get: "/api/category/{productId}"
         };
     }
 }

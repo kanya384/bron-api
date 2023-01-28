@@ -201,7 +201,7 @@ func RegisterReservesHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/CreateReserve", runtime.WithHTTPPathPattern("/reserve"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/CreateReserve", runtime.WithHTTPPathPattern("/api/reserve"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -226,7 +226,7 @@ func RegisterReservesHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/UpdateReserve", runtime.WithHTTPPathPattern("/reserve"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/UpdateReserve", runtime.WithHTTPPathPattern("/api/reserve"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -251,7 +251,7 @@ func RegisterReservesHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/DeleteReserve", runtime.WithHTTPPathPattern("/reserve"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/DeleteReserve", runtime.WithHTTPPathPattern("/api/reserve"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -276,7 +276,7 @@ func RegisterReservesHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/ReadReservesOfGuest", runtime.WithHTTPPathPattern("/reserve/{guestId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Reserves/ReadReservesOfGuest", runtime.WithHTTPPathPattern("/api/reserve/{guestId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -340,7 +340,7 @@ func RegisterReservesHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/CreateReserve", runtime.WithHTTPPathPattern("/reserve"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/CreateReserve", runtime.WithHTTPPathPattern("/api/reserve"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -362,7 +362,7 @@ func RegisterReservesHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/UpdateReserve", runtime.WithHTTPPathPattern("/reserve"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/UpdateReserve", runtime.WithHTTPPathPattern("/api/reserve"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -384,7 +384,7 @@ func RegisterReservesHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/DeleteReserve", runtime.WithHTTPPathPattern("/reserve"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/DeleteReserve", runtime.WithHTTPPathPattern("/api/reserve"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -406,7 +406,7 @@ func RegisterReservesHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/ReadReservesOfGuest", runtime.WithHTTPPathPattern("/reserve/{guestId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Reserves/ReadReservesOfGuest", runtime.WithHTTPPathPattern("/api/reserve/{guestId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -426,13 +426,13 @@ func RegisterReservesHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 }
 
 var (
-	pattern_Reserves_CreateReserve_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"reserve"}, ""))
+	pattern_Reserves_CreateReserve_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "reserve"}, ""))
 
-	pattern_Reserves_UpdateReserve_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"reserve"}, ""))
+	pattern_Reserves_UpdateReserve_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "reserve"}, ""))
 
-	pattern_Reserves_DeleteReserve_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"reserve"}, ""))
+	pattern_Reserves_DeleteReserve_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "reserve"}, ""))
 
-	pattern_Reserves_ReadReservesOfGuest_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"reserve", "guestId"}, ""))
+	pattern_Reserves_ReadReservesOfGuest_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "reserve", "guestId"}, ""))
 )
 
 var (

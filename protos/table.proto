@@ -26,7 +26,6 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
             }
         }
     };
-    base_path: "/api/",
     security: {
         security_requirement: {
           key: "Bearer"
@@ -38,138 +37,138 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 service Tables {
     rpc CreateTable (CreateTableRequest) returns (CreateTableResponse) {
         option (google.api.http) = {
-            put: "/table"
+            put: "/api/table"
             body: "*"
         };
     }
 
     rpc UpdateTable (UpdateTableRequest) returns (UpdateTableResponse) {
         option (google.api.http) = {
-            post: "/table"
+            post: "/api/table"
             body: "*"
         };
     }
 
     rpc DeleteTable (DeleteTableRequest) returns (DeleteTableResponse) {
         option (google.api.http) = {
-            delete: "/table/{id}"
+            delete: "/api/table/{id}"
         };
     }
 
     rpc ReadTablesOfRoom (ReadTablesOfRoomRequest) returns (ReadTablesOfRoomResponse) {
         option (google.api.http) = {
-            get: "/table/{roomId}"
+            get: "/api/table/{roomId}"
         };
     }
 
     rpc CreatePanorama (CreatePanoramaRequest) returns (CreatePanoramaResponse) {
         option (google.api.http) = {
-            put: "/panorama"
+            put: "/api/panorama"
             body: "*"
         };
     }
 
     rpc UpdatePanorama (UpdatePanoramaRequest) returns (UpdatePanoramaResponse) {
         option (google.api.http) = {
-            post: "/panorama"
+            post: "/api/panorama"
             body: "*"
         };
     }
 
     rpc DeletePanorama (DeletePanoramaRequest) returns (DeletePanoramaResponse) {
         option (google.api.http) = {
-            delete: "/panorama"
+            delete: "/api/panorama"
         };
     }
 
     rpc ReadPanoramasOfRoom (ReadPanoramasOfRoomRequest) returns (ReadPanoramasOfRoomResponse) {
         option (google.api.http) = {
-            get: "/panorama/{roomId}"
+            get: "/api/panorama/{roomId}"
         };
     }
 
     rpc CreateRoom (CreateRoomRequest) returns (CreateRoomResponse) {
         option (google.api.http) = {
-            put: "/room"
+            put: "/api/room"
             body: "*"
         };
     }
 
     rpc UpdateRoom (UpdateRoomRequest) returns (UpdateRoomResponse) {
         option (google.api.http) = {
-            post: "/room"
+            post: "/api/room"
             body: "*"
         };
     }
 
     rpc DeleteRoom (DeleteRoomRequest) returns (DeleteRoomResponse) {
         option (google.api.http) = {
-            delete: "/room"
+            delete: "/api/room"
         };
     }
 
     rpc ReadRoomsById (ReadRoomsByIdRequest) returns (ReadRoomsByIdResponse) {
         option (google.api.http) = {
-            get: "/room/{roomId}"
+            get: "/api/room/{roomId}"
         };
     }
 
     rpc ReadRoomsOfProject (ReadRoomsOfProjectRequest) returns (ReadRoomsOfProjectResponse) {
         option (google.api.http) = {
-            get: "/room/{projectId}"
+            get: "/api/room/{projectId}"
         };
     }
 
 
     rpc CreatePoint (CreatePointRequest) returns (CreatePointResponse) {
         option (google.api.http) = {
-            put: "/point"
+            put: "/api/point"
             body: "*"
         };
     }
 
     rpc UpdatePoint (UpdatePointRequest) returns (UpdatePointResponse) {
         option (google.api.http) = {
-            post: "/point"
+            post: "/api/point"
             body: "*"
         };
     }
 
     rpc DeletePoint (DeletePointRequest) returns (DeletePointResponse) {
         option (google.api.http) = {
-            delete: "/point"
+            delete: "/api/point"
         };
     }
 
     rpc ReadPointsOfPanorama (ReadPointsOfPanoramaRequest) returns (ReadPointsOfPanoramaResponse) {
         option (google.api.http) = {
-            get: "/point/{panoramaId}"
+            get: "/api/point/{panoramaId}"
         };
     }
 
     rpc CreateTransition (CreateTransitionRequest) returns (CreateTransitionResponse) {
         option (google.api.http) = {
-            put: "/transition"
+            put: "/api/transition"
             body: "*"
         };
     }
 
     rpc UpdateTransition (UpdateTransitionRequest) returns (UpdateTransitionResponse) {
         option (google.api.http) = {
-            post: "/transition"
+            post: "/api/transition"
             body: "*"
         };
     }
 
     rpc DeleteTransition (DeleteTransitionRequest) returns (DeleteTransitionResponse) {
         option (google.api.http) = {
-            delete: "/transition/{id}"
+            delete: "/api/transition/{id}"
         };
     }
 
     rpc ReadTransitionsOfPanorama (ReadTransitionsOfPanoramaRequest) returns (ReadTransitionsOfPanoramaResponse) {
         option (google.api.http) = {
-            delete: "/transition/{panoramaId}"
+            delete: "/api/transition/{panoramaId}"
         };
     }
 

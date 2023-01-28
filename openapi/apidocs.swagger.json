@@ -25,7 +25,6 @@
       "name": "Tables"
     }
   ],
-  "basePath": "/api/",
   "consumes": [
     "application/json"
   ],
@@ -33,7 +32,7 @@
     "application/json"
   ],
   "paths": {
-    "/auth/refresh-token": {
+    "/api/auth/refresh-token": {
       "post": {
         "operationId": "Auth_RefreshToken",
         "responses": {
@@ -65,7 +64,7 @@
         ]
       }
     },
-    "/auth/reset-password": {
+    "/api/auth/reset-password": {
       "post": {
         "operationId": "Auth_ResetPassword",
         "responses": {
@@ -97,7 +96,7 @@
         ]
       }
     },
-    "/auth/sign-in": {
+    "/api/auth/sign-in": {
       "post": {
         "operationId": "Auth_SignIn",
         "responses": {
@@ -129,7 +128,7 @@
         ]
       }
     },
-    "/auth/sign-up/administrator": {
+    "/api/auth/sign-up/administrator": {
       "post": {
         "operationId": "Auth_SignUpAdministrator",
         "responses": {
@@ -163,7 +162,7 @@
         "security": []
       }
     },
-    "/auth/sign-up/user": {
+    "/api/auth/sign-up/user": {
       "post": {
         "operationId": "Auth_SignUpUser",
         "responses": {
@@ -197,7 +196,7 @@
         "security": []
       }
     },
-    "/auth/verify-mail": {
+    "/api/auth/verify-mail": {
       "post": {
         "operationId": "Auth_VerifyEmail",
         "responses": {
@@ -229,7 +228,7 @@
         ]
       }
     },
-    "/category": {
+    "/api/category": {
       "post": {
         "operationId": "Catalog_UpdateCategory",
         "responses": {
@@ -291,7 +290,7 @@
         ]
       }
     },
-    "/category/{id}": {
+    "/api/category/{id}": {
       "delete": {
         "operationId": "Catalog_DeleteCategory",
         "responses": {
@@ -321,7 +320,7 @@
         ]
       }
     },
-    "/category/{productId}": {
+    "/api/category/{productId}": {
       "get": {
         "operationId": "Catalog_ReadProductsOfCategory",
         "responses": {
@@ -351,7 +350,7 @@
         ]
       }
     },
-    "/category/{projectId}": {
+    "/api/category/{projectId}": {
       "get": {
         "operationId": "Catalog_ReadCategoriesByProjectId",
         "responses": {
@@ -381,7 +380,7 @@
         ]
       }
     },
-    "/company": {
+    "/api/company": {
       "post": {
         "operationId": "Company_UpdateCompany",
         "responses": {
@@ -443,7 +442,7 @@
         ]
       }
     },
-    "/company/{id}": {
+    "/api/company/{id}": {
       "get": {
         "operationId": "Company_ReadCompanyByID",
         "responses": {
@@ -501,7 +500,7 @@
         ]
       }
     },
-    "/panorama": {
+    "/api/panorama": {
       "delete": {
         "operationId": "Tables_DeletePanorama",
         "responses": {
@@ -591,7 +590,7 @@
         ]
       }
     },
-    "/panorama/{roomId}": {
+    "/api/panorama/{roomId}": {
       "get": {
         "operationId": "Tables_ReadPanoramasOfRoom",
         "responses": {
@@ -621,7 +620,7 @@
         ]
       }
     },
-    "/point": {
+    "/api/point": {
       "delete": {
         "operationId": "Tables_DeletePoint",
         "responses": {
@@ -711,7 +710,7 @@
         ]
       }
     },
-    "/point/{panoramaId}": {
+    "/api/point/{panoramaId}": {
       "get": {
         "operationId": "Tables_ReadPointsOfPanorama",
         "responses": {
@@ -719,6 +718,632 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/grpcReadPointsOfPanoramaResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "panoramaId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/project": {
+      "get": {
+        "operationId": "Company_ReadProjectsOfUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadProjectsOfUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Company"
+        ]
+      },
+      "post": {
+        "operationId": "Company_UpdateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      },
+      "put": {
+        "operationId": "Company_CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/api/project/{id}": {
+      "delete": {
+        "operationId": "Company_DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/api/reserve": {
+      "delete": {
+        "operationId": "Reserves_DeleteReserve",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteReserveResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Reserves"
+        ]
+      },
+      "post": {
+        "operationId": "Reserves_UpdateReserve",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateReserveResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateReserveRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Reserves"
+        ]
+      },
+      "put": {
+        "operationId": "Reserves_CreateReserve",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateReserveResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateReserveRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Reserves"
+        ]
+      }
+    },
+    "/api/reserve/{guestId}": {
+      "get": {
+        "operationId": "Reserves_ReadReservesOfGuest",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadReservesOfGuestResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "guestId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Reserves"
+        ]
+      }
+    },
+    "/api/room": {
+      "delete": {
+        "operationId": "Tables_DeleteRoom",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteRoomResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      },
+      "post": {
+        "operationId": "Tables_UpdateRoom",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateRoomResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateRoomRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      },
+      "put": {
+        "operationId": "Tables_CreateRoom",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateRoomResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateRoomRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/room/{projectId}": {
+      "get": {
+        "operationId": "Tables_ReadRoomsOfProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadRoomsOfProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/room/{roomId}": {
+      "get": {
+        "operationId": "Tables_ReadRoomsById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadRoomsByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "roomId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/table": {
+      "post": {
+        "operationId": "Tables_UpdateTable",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateTableResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateTableRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      },
+      "put": {
+        "operationId": "Tables_CreateTable",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateTableResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateTableRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/table/{id}": {
+      "delete": {
+        "operationId": "Tables_DeleteTable",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteTableResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/table/{roomId}": {
+      "get": {
+        "operationId": "Tables_ReadTablesOfRoom",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadTablesOfRoomResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "roomId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/transition": {
+      "post": {
+        "operationId": "Tables_UpdateTransition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateTransitionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateTransitionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      },
+      "put": {
+        "operationId": "Tables_CreateTransition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateTransitionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateTransitionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/transition/{id}": {
+      "delete": {
+        "operationId": "Tables_DeleteTransition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteTransitionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
+    "/api/transition/{panoramaId}": {
+      "delete": {
+        "operationId": "Tables_ReadTransitionsOfPanorama",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadTransitionsOfPanoramaResponse"
             }
           },
           "default": {
@@ -830,632 +1455,6 @@
         ],
         "tags": [
           "Catalog"
-        ]
-      }
-    },
-    "/project": {
-      "get": {
-        "operationId": "Company_ReadProjectsOfUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcReadProjectsOfUserResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Company"
-        ]
-      },
-      "post": {
-        "operationId": "Company_UpdateProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateProjectResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Company"
-        ]
-      },
-      "put": {
-        "operationId": "Company_CreateProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcCreateProjectResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcCreateProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Company"
-        ]
-      }
-    },
-    "/project/{id}": {
-      "delete": {
-        "operationId": "Company_DeleteProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcDeleteProjectResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Company"
-        ]
-      }
-    },
-    "/reserve": {
-      "delete": {
-        "operationId": "Reserves_DeleteReserve",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcDeleteReserveResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Reserves"
-        ]
-      },
-      "post": {
-        "operationId": "Reserves_UpdateReserve",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateReserveResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateReserveRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Reserves"
-        ]
-      },
-      "put": {
-        "operationId": "Reserves_CreateReserve",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcCreateReserveResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcCreateReserveRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Reserves"
-        ]
-      }
-    },
-    "/reserve/{guestId}": {
-      "get": {
-        "operationId": "Reserves_ReadReservesOfGuest",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcReadReservesOfGuestResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "guestId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Reserves"
-        ]
-      }
-    },
-    "/room": {
-      "delete": {
-        "operationId": "Tables_DeleteRoom",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcDeleteRoomResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      },
-      "post": {
-        "operationId": "Tables_UpdateRoom",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateRoomResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateRoomRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      },
-      "put": {
-        "operationId": "Tables_CreateRoom",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcCreateRoomResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcCreateRoomRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/room/{projectId}": {
-      "get": {
-        "operationId": "Tables_ReadRoomsOfProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcReadRoomsOfProjectResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "projectId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/room/{roomId}": {
-      "get": {
-        "operationId": "Tables_ReadRoomsById",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcReadRoomsByIdResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "roomId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/table": {
-      "post": {
-        "operationId": "Tables_UpdateTable",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateTableResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateTableRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      },
-      "put": {
-        "operationId": "Tables_CreateTable",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcCreateTableResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcCreateTableRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/table/{id}": {
-      "delete": {
-        "operationId": "Tables_DeleteTable",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcDeleteTableResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/table/{roomId}": {
-      "get": {
-        "operationId": "Tables_ReadTablesOfRoom",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcReadTablesOfRoomResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "roomId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/transition": {
-      "post": {
-        "operationId": "Tables_UpdateTransition",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateTransitionResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateTransitionRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      },
-      "put": {
-        "operationId": "Tables_CreateTransition",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcCreateTransitionResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcCreateTransitionRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/transition/{id}": {
-      "delete": {
-        "operationId": "Tables_DeleteTransition",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcDeleteTransitionResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Tables"
-        ]
-      }
-    },
-    "/transition/{panoramaId}": {
-      "delete": {
-        "operationId": "Tables_ReadTransitionsOfPanorama",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcReadTransitionsOfPanoramaResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "panoramaId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Tables"
         ]
       }
     }
