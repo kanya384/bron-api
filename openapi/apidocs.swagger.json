@@ -25,6 +25,7 @@
       "name": "Tables"
     }
   ],
+  "basePath": "/api/",
   "consumes": [
     "application/json"
   ],
