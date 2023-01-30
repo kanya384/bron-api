@@ -462,6 +462,38 @@
         ]
       }
     },
+    "/api/company/project": {
+      "put": {
+        "operationId": "Company_CreateCompanyAndProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateCompanyAndProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateCompanyAndProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
     "/api/company/{id}": {
       "get": {
         "operationId": "Company_ReadCompanyByID",
@@ -1547,6 +1579,28 @@
       "properties": {
         "response": {
           "$ref": "#/definitions/grpcCategoryResponse"
+        }
+      }
+    },
+    "grpcCreateCompanyAndProjectRequest": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "$ref": "#/definitions/grpcCreateCompanyRequest"
+        },
+        "project": {
+          "$ref": "#/definitions/grpcCreateProjectRequest"
+        }
+      }
+    },
+    "grpcCreateCompanyAndProjectResponse": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "$ref": "#/definitions/grpcCreateCompanyResponse"
+        },
+        "project": {
+          "$ref": "#/definitions/grpcCreateProjectResponse"
         }
       }
     },

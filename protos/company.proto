@@ -43,6 +43,13 @@ service Company {
         };
     }
 
+    rpc CreateCompanyAndProject (CreateCompanyAndProjectRequest) returns (CreateCompanyAndProjectResponse) {
+        option (google.api.http) = {
+            put: "/api/company/project"
+            body: "*"
+        };
+    }
+
     rpc UpdateCompany (UpdateCompanyRequest) returns (UpdateCompanyResponse) {
         option (google.api.http) = {
             post: "/api/company"
@@ -93,6 +100,16 @@ service Company {
             get: "/api/project"
         };
     }
+}
+
+message CreateCompanyAndProjectRequest {
+    CreateCompanyRequest company = 1;
+    CreateProjectRequest project = 2;
+}
+
+message CreateCompanyAndProjectResponse {
+    CreateCompanyResponse company = 1;
+    CreateProjectResponse project = 2;
 }
 
 message CreateProjectRequest {
