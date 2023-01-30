@@ -1597,10 +1597,10 @@
       "type": "object",
       "properties": {
         "company": {
-          "$ref": "#/definitions/grpcCreateCompanyResponse"
+          "$ref": "#/definitions/grpcCompanyResponse"
         },
         "project": {
-          "$ref": "#/definitions/grpcCreateProjectResponse"
+          "$ref": "#/definitions/grpcProjectResponse"
         }
       }
     },

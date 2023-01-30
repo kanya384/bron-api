@@ -108,8 +108,8 @@ message CreateCompanyAndProjectRequest {
 }
 
 message CreateCompanyAndProjectResponse {
-    CreateCompanyResponse company = 1;
-    CreateProjectResponse project = 2;
+    CompanyResponse company = 1;
+    ProjectResponse project = 2;
 }
 
 message CreateProjectRequest {
