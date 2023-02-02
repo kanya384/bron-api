@@ -83,7 +83,7 @@ service Catalog {
 
     rpc ReadProductsOfCategory (ReadProductsOfCategoryRequest) returns (ReadProductsOfCategoryResponse) {
         option (google.api.http) = {
-            get: "/api/category/{productId}"
+            get: "/api/product/{productId}"
         };
     }
 }

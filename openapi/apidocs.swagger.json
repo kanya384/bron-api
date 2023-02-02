@@ -320,36 +320,6 @@
         ]
       }
     },
-    "/api/category/{productId}": {
-      "get": {
-        "operationId": "Catalog_ReadProductsOfCategory",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcReadProductsOfCategoryResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "productId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Catalog"
-        ]
-      }
-    },
     "/api/category/{projectId}": {
       "get": {
         "operationId": "Catalog_ReadCategoriesByProjectId",
@@ -789,6 +759,36 @@
         ],
         "tags": [
           "Tables"
+        ]
+      }
+    },
+    "/api/product/{productId}": {
+      "get": {
+        "operationId": "Catalog_ReadProductsOfCategory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadProductsOfCategoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Catalog"
         ]
       }
     },
