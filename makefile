@@ -1,7 +1,7 @@
 .PHONY: help
 
 generate:
-	@make genproto && make gengateway
+	@make genproto && make gengateway && make gentypescript
 
 genproto: ## generates go package from proto files
 	@protoc  protos/auth.proto --go-grpc_out=./go/auth --go_out=./go/auth
