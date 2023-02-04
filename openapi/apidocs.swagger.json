@@ -1707,6 +1707,10 @@
         "price": {
           "type": "number",
           "format": "float"
+        },
+        "photo": {
+          "type": "string",
+          "format": "byte"
         }
       }
     },
@@ -2657,6 +2661,10 @@
         "price": {
           "type": "number",
           "format": "float"
+        },
+        "photo": {
+          "type": "string",
+          "format": "byte"
         }
       }
     },

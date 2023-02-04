@@ -97,6 +97,7 @@ message CreateProductRequest {
     string badge = 6;
     string status = 7;
     float price = 8;
+    bytes photo = 9;
 }
 
 message CreateProductResponse{
@@ -113,6 +114,7 @@ message UpdateProductRequest {
     string badge = 7;
     string status = 8;
     float price = 9;
+    bytes photo = 10;
 }
 
 message UpdateProductResponse{

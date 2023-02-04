@@ -2937,7 +2937,7 @@ export const CatalogApiAxiosParamCreator = function (configuration?: Configurati
         catalogReadProductsOfCategory: async (productId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'productId' is not null or undefined
             assertParamExists('catalogReadProductsOfCategory', 'productId', productId)
-            const localVarPath = `/api/category/{productId}`
+            const localVarPath = `/api/product/{productId}`
                 .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
