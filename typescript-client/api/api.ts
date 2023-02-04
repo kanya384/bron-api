@@ -2803,7 +2803,7 @@ export const CatalogApiAxiosParamCreator = function (configuration?: Configurati
         catalogCreateProduct: async (body: GrpcCreateProductRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             assertParamExists('catalogCreateProduct', 'body', body)
-            const localVarPath = `/product`;
+            const localVarPath = `/api/product`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2877,7 +2877,7 @@ export const CatalogApiAxiosParamCreator = function (configuration?: Configurati
         catalogDeleteProduct: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('catalogDeleteProduct', 'id', id)
-            const localVarPath = `/product/{id}`
+            const localVarPath = `/api/product/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3023,7 +3023,7 @@ export const CatalogApiAxiosParamCreator = function (configuration?: Configurati
         catalogUpdateProduct: async (body: GrpcUpdateProductRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             assertParamExists('catalogUpdateProduct', 'body', body)
-            const localVarPath = `/product`;
+            const localVarPath = `/api/product`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

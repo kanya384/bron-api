@@ -29,6 +29,7 @@ type CatalogClient interface {
 	CreateProduct(ctx context.Context, in *CreateProductRequest, opts ...grpc.CallOption) (*CreateProductResponse, error)
 	UpdateProduct(ctx context.Context, in *UpdateProductRequest, opts ...grpc.CallOption) (*UpdateProductResponse, error)
 	DeleteProduct(ctx context.Context, in *DeleteProductRequest, opts ...grpc.CallOption) (*DeleteProductResponse, error)
+	ReadProductsOfProject(ctx context.Context, in *ReadProductsOfProjectRequest, opts ...grpc.CallOption) (*ReadProductsOfProjectResponse, error)
 	ReadProductsOfCategory(ctx context.Context, in *ReadProductsOfCategoryRequest, opts ...grpc.CallOption) (*ReadProductsOfCategoryResponse, error)
 }
 
@@ -103,6 +104,15 @@ func (c *catalogClient) DeleteProduct(ctx context.Context, in *DeleteProductRequ
 	return out, nil
 }
 
+func (c *catalogClient) ReadProductsOfProject(ctx context.Context, in *ReadProductsOfProjectRequest, opts ...grpc.CallOption) (*ReadProductsOfProjectResponse, error) {
+	out := new(ReadProductsOfProjectResponse)
+	err := c.cc.Invoke(ctx, "/grpc.Catalog/ReadProductsOfProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *catalogClient) ReadProductsOfCategory(ctx context.Context, in *ReadProductsOfCategoryRequest, opts ...grpc.CallOption) (*ReadProductsOfCategoryResponse, error) {
 	out := new(ReadProductsOfCategoryResponse)
 	err := c.cc.Invoke(ctx, "/grpc.Catalog/ReadProductsOfCategory", in, out, opts...)
@@ -123,6 +133,7 @@ type CatalogServer interface {
 	CreateProduct(context.Context, *CreateProductRequest) (*CreateProductResponse, error)
 	UpdateProduct(context.Context, *UpdateProductRequest) (*UpdateProductResponse, error)
 	DeleteProduct(context.Context, *DeleteProductRequest) (*DeleteProductResponse, error)
+	ReadProductsOfProject(context.Context, *ReadProductsOfProjectRequest) (*ReadProductsOfProjectResponse, error)
 	ReadProductsOfCategory(context.Context, *ReadProductsOfCategoryRequest) (*ReadProductsOfCategoryResponse, error)
 	mustEmbedUnimplementedCatalogServer()
 }
@@ -151,6 +162,9 @@ func (UnimplementedCatalogServer) UpdateProduct(context.Context, *UpdateProductR
 }
 func (UnimplementedCatalogServer) DeleteProduct(context.Context, *DeleteProductRequest) (*DeleteProductResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProduct not implemented")
+}
+func (UnimplementedCatalogServer) ReadProductsOfProject(context.Context, *ReadProductsOfProjectRequest) (*ReadProductsOfProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadProductsOfProject not implemented")
 }
 func (UnimplementedCatalogServer) ReadProductsOfCategory(context.Context, *ReadProductsOfCategoryRequest) (*ReadProductsOfCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadProductsOfCategory not implemented")
@@ -294,6 +308,24 @@ func _Catalog_DeleteProduct_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Catalog_ReadProductsOfProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadProductsOfProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CatalogServer).ReadProductsOfProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc.Catalog/ReadProductsOfProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CatalogServer).ReadProductsOfProject(ctx, req.(*ReadProductsOfProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Catalog_ReadProductsOfCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReadProductsOfCategoryRequest)
 	if err := dec(in); err != nil {
@@ -346,6 +378,10 @@ var Catalog_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteProduct",
 			Handler:    _Catalog_DeleteProduct_Handler,
+		},
+		{
+			MethodName: "ReadProductsOfProject",
+			Handler:    _Catalog_ReadProductsOfProject_Handler,
 		},
 		{
 			MethodName: "ReadProductsOfCategory",

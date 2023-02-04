@@ -824,7 +824,7 @@
         ]
       }
     },
-    "/api/product/{categoryId}": {
+    "/api/product/category/{categoryId}": {
       "get": {
         "operationId": "Catalog_ReadProductsOfCategory",
         "responses": {
@@ -844,6 +844,36 @@
         "parameters": [
           {
             "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
+    "/api/product/project/{projectId}": {
+      "get": {
+        "operationId": "Catalog_ReadProductsOfProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadProductsOfProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -2200,6 +2230,17 @@
       }
     },
     "grpcReadProductsOfCategoryResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/grpcProductResponse"
+          }
+        }
+      }
+    },
+    "grpcReadProductsOfProjectResponse": {
       "type": "object",
       "properties": {
         "response": {

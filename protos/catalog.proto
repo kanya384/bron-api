@@ -81,9 +81,15 @@ service Catalog {
         };
     }
 
+    rpc ReadProductsOfProject (ReadProductsOfProjectRequest) returns (ReadProductsOfProjectResponse) {
+        option (google.api.http) = {
+            get: "/api/product/project/{projectId}"
+        };
+    }
+
     rpc ReadProductsOfCategory (ReadProductsOfCategoryRequest) returns (ReadProductsOfCategoryResponse) {
         option (google.api.http) = {
-            get: "/api/product/{categoryId}"
+            get: "/api/product/category/{categoryId}"
         };
     }
 }
@@ -129,12 +135,37 @@ message DeleteProductResponse {
     bool success = 1;
 }
 
+message ReadProductsOfProjectRequest {
+    string projectId = 1;
+}
+
+message ReadProductsOfProjectResponse {
+    repeated ProductWihtCategoryNameResponse response =1;
+}
+
 message ReadProductsOfCategoryRequest {
     string categoryId = 1;
 }
 
 message ReadProductsOfCategoryResponse {
     repeated ProductResponse response =1;
+}
+
+message ProductWihtCategoryNameResponse {
+    string id = 1;
+    string categoryId = 2;
+    string categoryName = 3;
+    string name = 4;
+    string summary = 5;
+    string description = 6;
+    string image = 7;
+    string badge = 8;
+    string status = 9;
+    float price = 10;
+    int32 rating = 11;
+    int32 ratingCount = 12;
+    google.protobuf.Timestamp createdAt = 13;
+    google.protobuf.Timestamp modifiedAt = 14;
 }
 
 message ProductResponse {
