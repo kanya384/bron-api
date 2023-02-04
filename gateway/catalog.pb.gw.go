@@ -334,14 +334,14 @@ func request_Catalog_ReadProductsOfCategory_0(ctx context.Context, marshaler run
 		_   = err
 	)
 
-	val, ok = pathParams["productId"]
+	val, ok = pathParams["categoryId"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "productId")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "categoryId")
 	}
 
-	protoReq.ProductId, err = runtime.String(val)
+	protoReq.CategoryId, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "productId", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "categoryId", err)
 	}
 
 	msg, err := client.ReadProductsOfCategory(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -360,14 +360,14 @@ func local_request_Catalog_ReadProductsOfCategory_0(ctx context.Context, marshal
 		_   = err
 	)
 
-	val, ok = pathParams["productId"]
+	val, ok = pathParams["categoryId"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "productId")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "categoryId")
 	}
 
-	protoReq.ProductId, err = runtime.String(val)
+	protoReq.CategoryId, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "productId", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "categoryId", err)
 	}
 
 	msg, err := server.ReadProductsOfCategory(ctx, &protoReq)
@@ -564,7 +564,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/api/product/{productId}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/api/product/{categoryId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -782,7 +782,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/api/product/{productId}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/ReadProductsOfCategory", runtime.WithHTTPPathPattern("/api/product/{categoryId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -816,7 +816,7 @@ var (
 
 	pattern_Catalog_DeleteProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"product", "id"}, ""))
 
-	pattern_Catalog_ReadProductsOfCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "product", "productId"}, ""))
+	pattern_Catalog_ReadProductsOfCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "product", "categoryId"}, ""))
 )
 
 var (

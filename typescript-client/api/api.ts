@@ -357,6 +357,12 @@ export interface GrpcCreateProductRequest {
      * @memberof GrpcCreateProductRequest
      */
     'price'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcCreateProductRequest
+     */
+    'photo'?: string;
 }
 /**
  * 
@@ -1890,6 +1896,12 @@ export interface GrpcUpdateProductRequest {
      * @memberof GrpcUpdateProductRequest
      */
     'price'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcUpdateProductRequest
+     */
+    'photo'?: string;
 }
 /**
  * 

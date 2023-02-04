@@ -762,7 +762,7 @@
         ]
       }
     },
-    "/api/product/{productId}": {
+    "/api/product/{categoryId}": {
       "get": {
         "operationId": "Catalog_ReadProductsOfCategory",
         "responses": {
@@ -781,7 +781,7 @@
         },
         "parameters": [
           {
-            "name": "productId",
+            "name": "categoryId",
             "in": "path",
             "required": true,
             "type": "string"
