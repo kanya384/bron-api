@@ -489,7 +489,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/CreateProduct", runtime.WithHTTPPathPattern("/product"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/CreateProduct", runtime.WithHTTPPathPattern("/api/product"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -514,7 +514,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/UpdateProduct", runtime.WithHTTPPathPattern("/product"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/UpdateProduct", runtime.WithHTTPPathPattern("/api/product"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -539,7 +539,7 @@ func RegisterCatalogHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/DeleteProduct", runtime.WithHTTPPathPattern("/product/{id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/grpc.Catalog/DeleteProduct", runtime.WithHTTPPathPattern("/api/product/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -716,7 +716,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/CreateProduct", runtime.WithHTTPPathPattern("/product"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/CreateProduct", runtime.WithHTTPPathPattern("/api/product"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -738,7 +738,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/UpdateProduct", runtime.WithHTTPPathPattern("/product"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/UpdateProduct", runtime.WithHTTPPathPattern("/api/product"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -760,7 +760,7 @@ func RegisterCatalogHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/DeleteProduct", runtime.WithHTTPPathPattern("/product/{id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/grpc.Catalog/DeleteProduct", runtime.WithHTTPPathPattern("/api/product/{id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -810,11 +810,11 @@ var (
 
 	pattern_Catalog_ReadCategoriesByProjectId_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "category", "projectId"}, ""))
 
-	pattern_Catalog_CreateProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"product"}, ""))
+	pattern_Catalog_CreateProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "product"}, ""))
 
-	pattern_Catalog_UpdateProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"product"}, ""))
+	pattern_Catalog_UpdateProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "product"}, ""))
 
-	pattern_Catalog_DeleteProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"product", "id"}, ""))
+	pattern_Catalog_DeleteProduct_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "product", "id"}, ""))
 
 	pattern_Catalog_ReadProductsOfCategory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "product", "categoryId"}, ""))
 )

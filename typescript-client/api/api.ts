@@ -2942,15 +2942,15 @@ export const CatalogApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {string} productId 
+         * @param {string} categoryId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        catalogReadProductsOfCategory: async (productId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productId' is not null or undefined
-            assertParamExists('catalogReadProductsOfCategory', 'productId', productId)
-            const localVarPath = `/api/product/{productId}`
-                .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
+        catalogReadProductsOfCategory: async (categoryId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'categoryId' is not null or undefined
+            assertParamExists('catalogReadProductsOfCategory', 'categoryId', categoryId)
+            const localVarPath = `/api/product/{categoryId}`
+                .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3114,12 +3114,12 @@ export const CatalogApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} productId 
+         * @param {string} categoryId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async catalogReadProductsOfCategory(productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GrpcReadProductsOfCategoryResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.catalogReadProductsOfCategory(productId, options);
+        async catalogReadProductsOfCategory(categoryId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GrpcReadProductsOfCategoryResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.catalogReadProductsOfCategory(categoryId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -3199,12 +3199,12 @@ export const CatalogApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {string} productId 
+         * @param {string} categoryId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        catalogReadProductsOfCategory(productId: string, options?: any): AxiosPromise<GrpcReadProductsOfCategoryResponse> {
-            return localVarFp.catalogReadProductsOfCategory(productId, options).then((request) => request(axios, basePath));
+        catalogReadProductsOfCategory(categoryId: string, options?: any): AxiosPromise<GrpcReadProductsOfCategoryResponse> {
+            return localVarFp.catalogReadProductsOfCategory(categoryId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3291,13 +3291,13 @@ export class CatalogApi extends BaseAPI {
 
     /**
      * 
-     * @param {string} productId 
+     * @param {string} categoryId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CatalogApi
      */
-    public catalogReadProductsOfCategory(productId: string, options?: AxiosRequestConfig) {
-        return CatalogApiFp(this.configuration).catalogReadProductsOfCategory(productId, options).then((request) => request(this.axios, this.basePath));
+    public catalogReadProductsOfCategory(categoryId: string, options?: AxiosRequestConfig) {
+        return CatalogApiFp(this.configuration).catalogReadProductsOfCategory(categoryId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -762,6 +762,68 @@
         ]
       }
     },
+    "/api/product": {
+      "post": {
+        "operationId": "Catalog_UpdateProduct",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateProductResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcUpdateProductRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Catalog"
+        ]
+      },
+      "put": {
+        "operationId": "Catalog_CreateProduct",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcCreateProductResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcCreateProductRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
     "/api/product/{categoryId}": {
       "get": {
         "operationId": "Catalog_ReadProductsOfCategory",
@@ -782,6 +844,36 @@
         "parameters": [
           {
             "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
+    "/api/product/{id}": {
+      "delete": {
+        "operationId": "Catalog_DeleteProduct",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcDeleteProductResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1415,98 +1507,6 @@
         ],
         "tags": [
           "Tables"
-        ]
-      }
-    },
-    "/product": {
-      "post": {
-        "operationId": "Catalog_UpdateProduct",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateProductResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcUpdateProductRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Catalog"
-        ]
-      },
-      "put": {
-        "operationId": "Catalog_CreateProduct",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcCreateProductResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/grpcCreateProductRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Catalog"
-        ]
-      }
-    },
-    "/product/{id}": {
-      "delete": {
-        "operationId": "Catalog_DeleteProduct",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/grpcDeleteProductResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Catalog"
         ]
       }
     }
