@@ -1185,6 +1185,19 @@ export interface GrpcReadProductsOfCategoryResponse {
 /**
  * 
  * @export
+ * @interface GrpcReadProductsOfProjectResponse
+ */
+export interface GrpcReadProductsOfProjectResponse {
+    /**
+     * 
+     * @type {Array<GrpcProductResponse>}
+     * @memberof GrpcReadProductsOfProjectResponse
+     */
+    'response'?: Array<GrpcProductResponse>;
+}
+/**
+ * 
+ * @export
  * @interface GrpcReadProjectsOfUserResponse
  */
 export interface GrpcReadProjectsOfUserResponse {
@@ -2949,8 +2962,44 @@ export const CatalogApiAxiosParamCreator = function (configuration?: Configurati
         catalogReadProductsOfCategory: async (categoryId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'categoryId' is not null or undefined
             assertParamExists('catalogReadProductsOfCategory', 'categoryId', categoryId)
-            const localVarPath = `/api/product/{categoryId}`
+            const localVarPath = `/api/product/category/{categoryId}`
                 .replace(`{${"categoryId"}}`, encodeURIComponent(String(categoryId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} projectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        catalogReadProductsOfProject: async (projectId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'projectId' is not null or undefined
+            assertParamExists('catalogReadProductsOfProject', 'projectId', projectId)
+            const localVarPath = `/api/product/project/{projectId}`
+                .replace(`{${"projectId"}}`, encodeURIComponent(String(projectId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3124,6 +3173,16 @@ export const CatalogApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} projectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async catalogReadProductsOfProject(projectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GrpcReadProductsOfProjectResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.catalogReadProductsOfProject(projectId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {GrpcUpdateCategoryRequest} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3205,6 +3264,15 @@ export const CatalogApiFactory = function (configuration?: Configuration, basePa
          */
         catalogReadProductsOfCategory(categoryId: string, options?: any): AxiosPromise<GrpcReadProductsOfCategoryResponse> {
             return localVarFp.catalogReadProductsOfCategory(categoryId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} projectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        catalogReadProductsOfProject(projectId: string, options?: any): AxiosPromise<GrpcReadProductsOfProjectResponse> {
+            return localVarFp.catalogReadProductsOfProject(projectId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3298,6 +3366,17 @@ export class CatalogApi extends BaseAPI {
      */
     public catalogReadProductsOfCategory(categoryId: string, options?: AxiosRequestConfig) {
         return CatalogApiFp(this.configuration).catalogReadProductsOfCategory(categoryId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} projectId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CatalogApi
+     */
+    public catalogReadProductsOfProject(projectId: string, options?: AxiosRequestConfig) {
+        return CatalogApiFp(this.configuration).catalogReadProductsOfProject(projectId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

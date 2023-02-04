@@ -2141,6 +2141,58 @@
         }
       }
     },
+    "grpcProductWihtCategoryNameResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "categoryName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "badge": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "float"
+        },
+        "rating": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ratingCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
     "grpcProjectResponse": {
       "type": "object",
       "properties": {
@@ -2246,7 +2298,7 @@
         "response": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/grpcProductResponse"
+            "$ref": "#/definitions/grpcProductWihtCategoryNameResponse"
           }
         }
       }
