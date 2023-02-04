@@ -63,21 +63,21 @@ service Catalog {
 
     rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {
         option (google.api.http) = {
-            put: "/product"
+            put: "/api/product"
             body: "*"
         };
     }
 
     rpc UpdateProduct (UpdateProductRequest) returns (UpdateProductResponse) {
         option (google.api.http) = {
-            post: "/product"
+            post: "/api/product"
             body: "*"
         };
     }
 
     rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse) {
         option (google.api.http) = {
-            delete: "/product/{id}"
+            delete: "/api/product/{id}"
         };
     }
 
