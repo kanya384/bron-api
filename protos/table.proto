@@ -287,7 +287,7 @@ message CreateRoomRequest {
     string name = 2;
     string description = 3;
     bool active = 4;
-    string photo = 5;
+    bytes photo = 5;
 }
 
 message CreateRoomResponse{
@@ -311,7 +311,7 @@ message UpdateRoomRequest {
     string name = 3;
     string description = 4;
     bool active = 5;
-    string photo = 6;
+    bytes photo = 6;
 }
 
 message UpdateRoomResponse{
@@ -347,7 +347,7 @@ message ReadRoomsByIdResponse {
 message CreatePanoramaRequest {
     string roomId = 1;
     bool main = 2;
-    string photo = 3;
+    bytes photo = 3;
 }
 
 message CreatePanoramaResponse{
@@ -358,7 +358,7 @@ message UpdatePanoramaRequest {
     string id = 1;
     string roomId = 2;
     bool main = 3;
-    string photo = 4;
+    bytes photo = 4;
 }
 
 message UpdatePanoramaResponse{
@@ -398,6 +398,7 @@ message CreateTableRequest {
     bool gameConsole = 5;
     bool window = 6;
     bool karaoke = 7;
+    bytes photo = 8;
 }
 
 message CreateTableResponse{
@@ -413,6 +414,7 @@ message UpdateTableRequest {
     bool gameConsole = 6;
     bool window = 7;
     bool karaoke = 8;
+    bytes photo = 9;
 }
 
 message UpdateTableResponse{
@@ -429,8 +431,9 @@ message TableResponse {
     bool gameConsole = 6;
     bool window = 7;
     bool karaoke = 8;
-    google.protobuf.Timestamp createdAt = 9;
-    google.protobuf.Timestamp modifiedAt = 10;
+    string photo = 9;
+    google.protobuf.Timestamp createdAt = 10;
+    google.protobuf.Timestamp modifiedAt = 11;
 }
 
 message DeleteTableRequest {

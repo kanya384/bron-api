@@ -1040,6 +1040,97 @@ export interface GrpcProductResponse {
 /**
  * 
  * @export
+ * @interface GrpcProductWihtCategoryNameResponse
+ */
+export interface GrpcProductWihtCategoryNameResponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'categoryId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'categoryName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'summary'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'image'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'badge'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'price'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'rating'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'ratingCount'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'createdAt'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcProductWihtCategoryNameResponse
+     */
+    'modifiedAt'?: string;
+}
+/**
+ * 
+ * @export
  * @interface GrpcProjectResponse
  */
 export interface GrpcProjectResponse {
@@ -1190,10 +1281,10 @@ export interface GrpcReadProductsOfCategoryResponse {
 export interface GrpcReadProductsOfProjectResponse {
     /**
      * 
-     * @type {Array<GrpcProductResponse>}
+     * @type {Array<GrpcProductWihtCategoryNameResponse>}
      * @memberof GrpcReadProductsOfProjectResponse
      */
-    'response'?: Array<GrpcProductResponse>;
+    'response'?: Array<GrpcProductWihtCategoryNameResponse>;
 }
 /**
  * 

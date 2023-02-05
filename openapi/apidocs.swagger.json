@@ -1667,7 +1667,8 @@
           "type": "boolean"
         },
         "photo": {
-          "type": "string"
+          "type": "string",
+          "format": "byte"
         }
       }
     },
@@ -1854,7 +1855,8 @@
           "type": "boolean"
         },
         "photo": {
-          "type": "string"
+          "type": "string",
+          "format": "byte"
         }
       }
     },
@@ -1890,6 +1892,10 @@
         },
         "karaoke": {
           "type": "boolean"
+        },
+        "photo": {
+          "type": "string",
+          "format": "byte"
         }
       }
     },
@@ -2576,6 +2582,9 @@
         "karaoke": {
           "type": "boolean"
         },
+        "photo": {
+          "type": "string"
+        },
         "createdAt": {
           "type": "string",
           "format": "date-time"
@@ -2678,7 +2687,8 @@
           "type": "boolean"
         },
         "photo": {
-          "type": "string"
+          "type": "string",
+          "format": "byte"
         }
       }
     },
@@ -2880,7 +2890,8 @@
           "type": "boolean"
         },
         "photo": {
-          "type": "string"
+          "type": "string",
+          "format": "byte"
         }
       }
     },
@@ -2919,6 +2930,10 @@
         },
         "karaoke": {
           "type": "boolean"
+        },
+        "photo": {
+          "type": "string",
+          "format": "byte"
         }
       }
     },
