@@ -1388,6 +1388,36 @@
         ]
       }
     },
+    "/api/table/{projectId}": {
+      "get": {
+        "operationId": "Tables_ReadTablesOfProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadTablesOfProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
     "/api/table/{roomId}": {
       "get": {
         "operationId": "Tables_ReadTablesOfRoom",
@@ -2346,6 +2376,17 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/grpcRoomResponse"
+          }
+        }
+      }
+    },
+    "grpcReadTablesOfProjectResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/grpcTableResponse"
           }
         }
       }

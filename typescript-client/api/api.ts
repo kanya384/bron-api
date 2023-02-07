@@ -623,6 +623,12 @@ export interface GrpcCreateTableRequest {
      * @memberof GrpcCreateTableRequest
      */
     'karaoke'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcCreateTableRequest
+     */
+    'photo'?: string;
 }
 /**
  * 
@@ -1701,6 +1707,12 @@ export interface GrpcTableResponse {
      * @type {string}
      * @memberof GrpcTableResponse
      */
+    'photo'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcTableResponse
+     */
     'createdAt'?: string;
     /**
      * 
@@ -2290,6 +2302,12 @@ export interface GrpcUpdateTableRequest {
      * @memberof GrpcUpdateTableRequest
      */
     'karaoke'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GrpcUpdateTableRequest
+     */
+    'photo'?: string;
 }
 /**
  * 

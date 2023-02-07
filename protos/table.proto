@@ -61,6 +61,12 @@ service Tables {
         };
     }
 
+    rpc ReadTablesOfProject (ReadTablesOfProjectRequest) returns (ReadTablesOfProjectResponse) {
+        option (google.api.http) = {
+            get: "/api/table/{projectId}"
+        };
+    }
+
     rpc CreatePanorama (CreatePanoramaRequest) returns (CreatePanoramaResponse) {
         option (google.api.http) = {
             put: "/api/panorama"
@@ -449,5 +455,13 @@ message ReadTablesOfRoomRequest {
 }
 
 message ReadTablesOfRoomResponse {
+    repeated TableResponse response =1;
+}
+
+message ReadTablesOfProjectRequest {
+    string projectId = 1;
+}
+
+message ReadTablesOfProjectResponse {
     repeated TableResponse response =1;
 }
