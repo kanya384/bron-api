@@ -31,6 +31,7 @@ type TablesClient interface {
 	UpdatePanorama(ctx context.Context, in *UpdatePanoramaRequest, opts ...grpc.CallOption) (*UpdatePanoramaResponse, error)
 	DeletePanorama(ctx context.Context, in *DeletePanoramaRequest, opts ...grpc.CallOption) (*DeletePanoramaResponse, error)
 	ReadPanoramasOfRoom(ctx context.Context, in *ReadPanoramasOfRoomRequest, opts ...grpc.CallOption) (*ReadPanoramasOfRoomResponse, error)
+	ReadPanoramasOfProject(ctx context.Context, in *ReadPanoramasOfProjectRequest, opts ...grpc.CallOption) (*ReadPanoramasOfProjectResponse, error)
 	CreateRoom(ctx context.Context, in *CreateRoomRequest, opts ...grpc.CallOption) (*CreateRoomResponse, error)
 	UpdateRoom(ctx context.Context, in *UpdateRoomRequest, opts ...grpc.CallOption) (*UpdateRoomResponse, error)
 	DeleteRoom(ctx context.Context, in *DeleteRoomRequest, opts ...grpc.CallOption) (*DeleteRoomResponse, error)
@@ -129,6 +130,15 @@ func (c *tablesClient) DeletePanorama(ctx context.Context, in *DeletePanoramaReq
 func (c *tablesClient) ReadPanoramasOfRoom(ctx context.Context, in *ReadPanoramasOfRoomRequest, opts ...grpc.CallOption) (*ReadPanoramasOfRoomResponse, error) {
 	out := new(ReadPanoramasOfRoomResponse)
 	err := c.cc.Invoke(ctx, "/grpc.Tables/ReadPanoramasOfRoom", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tablesClient) ReadPanoramasOfProject(ctx context.Context, in *ReadPanoramasOfProjectRequest, opts ...grpc.CallOption) (*ReadPanoramasOfProjectResponse, error) {
+	out := new(ReadPanoramasOfProjectResponse)
+	err := c.cc.Invoke(ctx, "/grpc.Tables/ReadPanoramasOfProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -265,6 +275,7 @@ type TablesServer interface {
 	UpdatePanorama(context.Context, *UpdatePanoramaRequest) (*UpdatePanoramaResponse, error)
 	DeletePanorama(context.Context, *DeletePanoramaRequest) (*DeletePanoramaResponse, error)
 	ReadPanoramasOfRoom(context.Context, *ReadPanoramasOfRoomRequest) (*ReadPanoramasOfRoomResponse, error)
+	ReadPanoramasOfProject(context.Context, *ReadPanoramasOfProjectRequest) (*ReadPanoramasOfProjectResponse, error)
 	CreateRoom(context.Context, *CreateRoomRequest) (*CreateRoomResponse, error)
 	UpdateRoom(context.Context, *UpdateRoomRequest) (*UpdateRoomResponse, error)
 	DeleteRoom(context.Context, *DeleteRoomRequest) (*DeleteRoomResponse, error)
@@ -311,6 +322,9 @@ func (UnimplementedTablesServer) DeletePanorama(context.Context, *DeletePanorama
 }
 func (UnimplementedTablesServer) ReadPanoramasOfRoom(context.Context, *ReadPanoramasOfRoomRequest) (*ReadPanoramasOfRoomResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadPanoramasOfRoom not implemented")
+}
+func (UnimplementedTablesServer) ReadPanoramasOfProject(context.Context, *ReadPanoramasOfProjectRequest) (*ReadPanoramasOfProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadPanoramasOfProject not implemented")
 }
 func (UnimplementedTablesServer) CreateRoom(context.Context, *CreateRoomRequest) (*CreateRoomResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRoom not implemented")
@@ -522,6 +536,24 @@ func _Tables_ReadPanoramasOfRoom_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TablesServer).ReadPanoramasOfRoom(ctx, req.(*ReadPanoramasOfRoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Tables_ReadPanoramasOfProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadPanoramasOfProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TablesServer).ReadPanoramasOfProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc.Tables/ReadPanoramasOfProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TablesServer).ReadPanoramasOfProject(ctx, req.(*ReadPanoramasOfProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -802,6 +834,10 @@ var Tables_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReadPanoramasOfRoom",
 			Handler:    _Tables_ReadPanoramasOfRoom_Handler,
+		},
+		{
+			MethodName: "ReadPanoramasOfProject",
+			Handler:    _Tables_ReadPanoramasOfProject_Handler,
 		},
 		{
 			MethodName: "CreateRoom",

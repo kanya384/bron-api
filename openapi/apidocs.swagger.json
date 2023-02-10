@@ -612,6 +612,36 @@
         ]
       }
     },
+    "/api/panorama/project/{projectId}": {
+      "get": {
+        "operationId": "Tables_ReadPanoramasOfProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcReadPanoramasOfProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tables"
+        ]
+      }
+    },
     "/api/panorama/{roomId}": {
       "get": {
         "operationId": "Tables_ReadPanoramasOfRoom",
@@ -2292,6 +2322,17 @@
       "properties": {
         "response": {
           "$ref": "#/definitions/grpcCompanyResponse"
+        }
+      }
+    },
+    "grpcReadPanoramasOfProjectResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/grpcPanoramaResponse"
+          }
         }
       }
     },

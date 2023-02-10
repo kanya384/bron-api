@@ -93,6 +93,12 @@ service Tables {
         };
     }
 
+    rpc ReadPanoramasOfProject (ReadPanoramasOfProjectRequest) returns (ReadPanoramasOfProjectResponse) {
+        option (google.api.http) = {
+            get: "/api/panorama/project/{projectId}"
+        };
+    }
+
     rpc CreateRoom (CreateRoomRequest) returns (CreateRoomResponse) {
         option (google.api.http) = {
             put: "/api/room"
@@ -384,6 +390,14 @@ message ReadPanoramasOfRoomRequest {
 }
 
 message ReadPanoramasOfRoomResponse {
+    repeated PanoramaResponse response =1;
+}
+
+message ReadPanoramasOfProjectRequest {
+    string projectId = 1;
+}
+
+message ReadPanoramasOfProjectResponse {
     repeated PanoramaResponse response =1;
 }
 

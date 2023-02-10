@@ -1347,6 +1347,19 @@ export interface GrpcReadRoomsOfProjectResponse {
 /**
  * 
  * @export
+ * @interface GrpcReadTablesOfProjectResponse
+ */
+export interface GrpcReadTablesOfProjectResponse {
+    /**
+     * 
+     * @type {Array<GrpcTableResponse>}
+     * @memberof GrpcReadTablesOfProjectResponse
+     */
+    'response'?: Array<GrpcTableResponse>;
+}
+/**
+ * 
+ * @export
  * @interface GrpcReadTablesOfRoomResponse
  */
 export interface GrpcReadTablesOfRoomResponse {
@@ -5038,6 +5051,42 @@ export const TablesApiAxiosParamCreator = function (configuration?: Configuratio
         },
         /**
          * 
+         * @param {string} projectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tablesReadTablesOfProject: async (projectId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'projectId' is not null or undefined
+            assertParamExists('tablesReadTablesOfProject', 'projectId', projectId)
+            const localVarPath = `/api/table/{projectId}`
+                .replace(`{${"projectId"}}`, encodeURIComponent(String(projectId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {string} roomId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5450,6 +5499,16 @@ export const TablesApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} projectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async tablesReadTablesOfProject(projectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GrpcReadTablesOfProjectResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.tablesReadTablesOfProject(projectId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {string} roomId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5653,6 +5712,15 @@ export const TablesApiFactory = function (configuration?: Configuration, basePat
          */
         tablesReadRoomsOfProject(projectId: string, options?: any): AxiosPromise<GrpcReadRoomsOfProjectResponse> {
             return localVarFp.tablesReadRoomsOfProject(projectId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} projectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tablesReadTablesOfProject(projectId: string, options?: any): AxiosPromise<GrpcReadTablesOfProjectResponse> {
+            return localVarFp.tablesReadTablesOfProject(projectId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -5879,6 +5947,17 @@ export class TablesApi extends BaseAPI {
      */
     public tablesReadRoomsOfProject(projectId: string, options?: AxiosRequestConfig) {
         return TablesApiFp(this.configuration).tablesReadRoomsOfProject(projectId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} projectId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TablesApi
+     */
+    public tablesReadTablesOfProject(projectId: string, options?: AxiosRequestConfig) {
+        return TablesApiFp(this.configuration).tablesReadTablesOfProject(projectId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
